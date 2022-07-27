@@ -18,7 +18,7 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Remotes:
-    rsetienne/DAISIE@develop
+    rsetienne/DAISIE@develop,
     tece-lab/DAISIEutils@develop
 Depends: 
     R (>= 2.10)
