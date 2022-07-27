@@ -10,9 +10,15 @@ License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.0
+Imports:
+    DAISIE,
+    DAISIEutils
 Suggests: 
     covr,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Remotes:
+    rsetienne/DAISIE@develop
+    tece-lab/DAISIEutils@develop
 Depends: 
     R (>= 2.10)
