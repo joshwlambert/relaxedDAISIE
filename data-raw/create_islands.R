@@ -1,12 +1,10 @@
 ## code to prepare island dataset goes here
 ## The data sets selected and saved in this script have passed a set of
 ## criteria to be used in the analysis
-## Criterion 1) the island must have at least 5 colonisation events
+## Criterion 1) the island must have at least 6 colonisation events
 ## Criterion 2) the island must have at least 50% phylogenetic sampling
-## Criterion 3) the island must have variation in clades, either by size (i.e.
-## some clades have radiated while others have not), or by endemicity (i.e.
-## some island colonists are endemic while others are non-endemic). These two
-## factors suggest variation in island processes.
+## Criterion 3) the island must have variation in clade size (i.e.
+## some clades have radiated while others have not)
 
   # load data of all 41 islands/archipelagos stored in the DAISIE package
   utils::data(archipelagos41, package = "DAISIE")
@@ -52,16 +50,6 @@
 
   # save island data
   usethis::use_data(Hawaii, overwrite = TRUE)
-
-
-  # Juan Fernandez
-
-  # remove superfluous meta data
-  Juan_Fernandez[[1]] <- list(island_age = Juan_Fernandez[[1]]$island_age,
-                              not_present = Juan_Fernandez[[1]]$not_present)
-
-  # save island data
-  usethis::use_data(Juan_Fernandez, overwrite = TRUE)
 
   # Marquesas
 
