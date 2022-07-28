@@ -2,12 +2,18 @@
 #' radiation) across different standard deviations of gamma distribution of
 #' the relaxed-rate DAISIE model.
 #'
+#' @param island_clade A list with information on a single island clade,
+#' including clade name, branching times (including island age and colonisation
+#' time), stac (status of colonist), number of missing species and type of
+#' clade (either type 1 or 2)
 #' @param relaxed_par A string defining which parameter to relaxed. Options are:
-#' \code{"cladogenesis"}, \code{"extinction"}, \code{"carrying_capacity"}, or
-#' \code{"anagenesis"}.
-#' @param clade A string defining whether to use single lineage or a radiation.
-#' Options are: \code{"lineage"} or \code{"radiation"}.
-#'
+#' "cladogenesis", "extinction", "carrying_capacity", "immigration" or
+#' "anagenesis"
+#' @param sd A vector of numerics with the standard deviation to be used to
+#' check the difference between the original DAISIE model and the relaxed-rate
+#' DAISIE model
+#' @param par_upper_bound A numeric which sets the upper bound to the
+#' integration of the likelihood, can be infinite or finite.
 #' @return A list of two numeric vectors
 #' @export
 #'
@@ -15,6 +21,13 @@ calc_rr_cr_diff <- function(island_clade,
                             relaxed_par,
                             sd,
                             par_upper_bound) {
+
+  # get internal DAISIE functions to stop R CMD check giving note
+  DAISIE_loglik <- utils::getFromNamespace("DAISIE_loglik", ns = "DAISIE")
+  DAISIE_loglik_integrate <- utils::getFromNamespace(
+    "DAISIE_loglik_integrate",
+    ns = "DAISIE"
+  )
 
   # create a valid DAISIE data set with the island clade provided
   island_clade <- list(
@@ -56,7 +69,7 @@ calc_rr_cr_diff <- function(island_clade,
   verbose <- FALSE
 
   # calculate the original cr likelihood
-  loglik <- DAISIE:::DAISIE_loglik(
+  loglik <- DAISIE_loglik(
     pars1 = pars1,
     pars2 = pars2,
     brts = island_clade[[2]]$branching_times,
@@ -78,7 +91,7 @@ calc_rr_cr_diff <- function(island_clade,
       par_sd = sd[i],
       par_upper_bound = par_upper_bound
     )
-    loglik_integrated[i] <- DAISIE:::DAISIE_loglik_integrate(
+    loglik_integrated[i] <- DAISIE_loglik_integrate(
       pars1 = pars1,
       pars2 = pars2,
       brts = island_clade[[2]]$branching_times,

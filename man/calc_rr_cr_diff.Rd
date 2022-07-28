@@ -9,12 +9,21 @@ the relaxed-rate DAISIE model.}
 calc_rr_cr_diff(island_clade, relaxed_par, sd, par_upper_bound)
 }
 \arguments{
-\item{relaxed_par}{A string defining which parameter to relaxed. Options are:
-\code{"cladogenesis"}, \code{"extinction"}, \code{"carrying_capacity"}, or
-\code{"anagenesis"}.}
+\item{island_clade}{A list with information on a single island clade,
+including clade name, branching times (including island age and colonisation
+time), stac (status of colonist), number of missing species and type of
+clade (either type 1 or 2)}
 
-\item{clade}{A string defining whether to use single lineage or a radiation.
-Options are: \code{"lineage"} or \code{"radiation"}.}
+\item{relaxed_par}{A string defining which parameter to relaxed. Options are:
+"cladogenesis", "extinction", "carrying_capacity", "immigration" or
+"anagenesis"}
+
+\item{sd}{A vector of numerics with the standard deviation to be used to
+check the difference between the original DAISIE model and the relaxed-rate
+DAISIE model}
+
+\item{par_upper_bound}{A numeric which sets the upper bound to the
+integration of the likelihood, can be infinite or finite.}
 }
 \value{
 A list of two numeric vectors
