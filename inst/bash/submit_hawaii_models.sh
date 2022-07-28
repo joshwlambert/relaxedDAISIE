@@ -79,7 +79,7 @@ sleep 5
 
 sbatch --job-name=ml_Hawaii DAISIEutils/bash/submit_run_daisie_ml_long.sh \
   Hawaii \
-  rr_ana_dd \
+  rr_laa_dd \
   relaxedDAISIE \
   5 \
   NULL \
