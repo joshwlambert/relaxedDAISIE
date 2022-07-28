@@ -7,24 +7,84 @@
 #SBATCH --mem=5GB
 #SBATCH --partition=gelifes
 
-sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh New_Caledonia cr_dd relaxedDAISIE 5
+sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh \
+  New_Caledonia \
+  cr_dd \
+  relaxedDAISIE \
+  5 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
 
 sleep 5
 
-sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh New_Caledonia rr_lac_dd relaxedDAISIE 5
+sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh \
+  New_Caledonia \
+  rr_lac_dd \
+  relaxedDAISIE \
+  5 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
 
 sleep 5
 
-sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh New_Caledonia rr_mu_dd relaxedDAISIE 5
+sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh \
+  New_Caledonia \
+  rr_mu_dd \
+  relaxedDAISIE \
+  5 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
 
 sleep 5
 
-sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh New_Caledonia rr_k relaxedDAISIE 5
+sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh \
+  New_Caledonia \
+  rr_k \
+  relaxedDAISIE \
+  5 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
 
 sleep 5
 
-sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh New_Caledonia rr_gam_dd relaxedDAISIE 5
+sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh \
+  New_Caledonia \
+  rr_gam_dd \
+  relaxedDAISIE \
+  5 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
 
 sleep 5
 
-sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh New_Caledonia rr_laa_dd relaxedDAISIE 5
+sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh \
+  New_Caledonia \
+  rr_laa_dd \
+  relaxedDAISIE \
+  5 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
