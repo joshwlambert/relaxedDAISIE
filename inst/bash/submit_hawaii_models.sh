@@ -7,7 +7,7 @@
 #SBATCH --mem=5GB
 #SBATCH --partition=gelifes
 
-sbatch --job-name=ml_Hawaii DAISIEutils/bash/submit_run_daisie_ml_long.sh Hawaii cr_dd_0laa relaxedDAISIE 5
+sbatch --job-name=ml_Hawaii DAISIEutils/bash/submit_run_daisie_ml_long.sh Hawaii cr_dd relaxedDAISIE 5
 
 sleep 5
 
@@ -24,3 +24,7 @@ sbatch --job-name=ml_Hawaii DAISIEutils/bash/submit_run_daisie_ml_long.sh Hawaii
 sleep 5
 
 sbatch --job-name=ml_Hawaii DAISIEutils/bash/submit_run_daisie_ml_long.sh Hawaii rr_immig_dd relaxedDAISIE 5
+
+sleep 5
+
+sbatch --job-name=ml_Hawaii DAISIEutils/bash/submit_run_daisie_ml_long.sh Hawaii rr_ana_dd relaxedDAISIE 5
