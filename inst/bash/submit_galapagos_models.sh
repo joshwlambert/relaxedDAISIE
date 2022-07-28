@@ -7,24 +7,84 @@
 #SBATCH --mem=5GB
 #SBATCH --partition=gelifes
 
-sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_ml_long.sh Galapagos cr_dd relaxedDAISIE 5
+sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_ml_long.sh \
+  Galapagos \
+  cr_dd \
+  relaxedDAISIE \
+  5 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
 
 sleep 5
 
-sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_ml_long.sh Galapagos rr_lac_dd relaxedDAISIE 5
+sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_ml_long.sh \
+  Galapagos \
+  rr_lac_dd \
+  relaxedDAISIE \
+  5 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
 
 sleep 5
 
-sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_ml_long.sh Galapagos rr_mu_dd relaxedDAISIE 5
+sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_ml_long.sh \
+  Galapagos \
+  rr_mu_dd \
+  relaxedDAISIE \
+  5 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
 
 sleep 5
 
-sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_ml_long.sh Galapagos rr_k relaxedDAISIE 5
+sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_ml_long.sh \
+  Galapagos \
+  rr_k \
+  relaxedDAISIE \
+  5 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
 
 sleep 5
 
-sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_ml_long.sh Galapagos rr_immig_dd relaxedDAISIE 5
+sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_ml_long.sh \
+  Galapagos \
+  rr_gam_dd \
+  relaxedDAISIE \
+  5 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
 
 sleep 5
 
-sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_ml_long.sh Galapagos rr_laa_dd relaxedDAISIE 5
+sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_ml_long.sh \
+  Galapagos \
+  rr_laa_dd \
+  relaxedDAISIE \
+  5 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \

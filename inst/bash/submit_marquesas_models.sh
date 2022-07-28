@@ -23,7 +23,7 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_ml_long.sh Mar
 
 sleep 5
 
-sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_ml_long.sh Marquesas rr_immig_dd relaxedDAISIE 5
+sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_ml_long.sh Marquesas rr_gam_dd relaxedDAISIE 5
 
 sleep 5
 

@@ -23,7 +23,7 @@ sbatch --job-name=ml_Comoros DAISIEutils/bash/submit_run_daisie_ml_long.sh Comor
 
 sleep 5
 
-sbatch --job-name=ml_Comoros DAISIEutils/bash/submit_run_daisie_ml_long.sh Comoros rr_immig_dd relaxedDAISIE 5
+sbatch --job-name=ml_Comoros DAISIEutils/bash/submit_run_daisie_ml_long.sh Comoros rr_gam_dd relaxedDAISIE 5
 
 sleep 5
 

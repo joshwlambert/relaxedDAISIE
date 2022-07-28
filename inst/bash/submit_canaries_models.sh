@@ -23,7 +23,7 @@ sbatch --job-name=ml_Canaries DAISIEutils/bash/submit_run_daisie_ml_long.sh Cana
 
 sleep 5
 
-sbatch --job-name=ml_Canaries DAISIEutils/bash/submit_run_daisie_ml_long.sh Canaries rr_immig_dd relaxedDAISIE 5
+sbatch --job-name=ml_Canaries DAISIEutils/bash/submit_run_daisie_ml_long.sh Canaries rr_gam_dd relaxedDAISIE 5
 
 sleep 5
 

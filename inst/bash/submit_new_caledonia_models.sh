@@ -23,7 +23,7 @@ sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh
 
 sleep 5
 
-sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh New_Caledonia rr_immig_dd relaxedDAISIE 5
+sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh New_Caledonia rr_gam_dd relaxedDAISIE 5
 
 sleep 5
 

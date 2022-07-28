@@ -23,7 +23,7 @@ sbatch --job-name=ml_SaoTome_Principe DAISIEutils/bash/submit_run_daisie_ml_long
 
 sleep 5
 
-sbatch --job-name=ml_SaoTome_Principe DAISIEutils/bash/submit_run_daisie_ml_long.sh SaoTome_Principe rr_immig_dd relaxedDAISIE 5
+sbatch --job-name=ml_SaoTome_Principe DAISIEutils/bash/submit_run_daisie_ml_long.sh SaoTome_Principe rr_gam_dd relaxedDAISIE 5
 
 sleep 5
 
