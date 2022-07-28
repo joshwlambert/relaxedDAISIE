@@ -4,7 +4,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=install_relaxedDAISIE
-#SBATCH --output=relaxedDAISIE/install_relaxedDAISIE.log
+#SBATCH --output=install_relaxedDAISIE.log
 #SBATCH --mem=5GB
 
 mkdir -p logs
