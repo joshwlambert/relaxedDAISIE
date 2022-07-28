@@ -17,6 +17,6 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Remotes:
-    tece-lab/DAISIEutils@develop
+    tece-lab/DAISIEutils@relaxed_immig
 Depends: 
     R (>= 2.10)
