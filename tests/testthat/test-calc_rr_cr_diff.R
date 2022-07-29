@@ -18,7 +18,8 @@ test_that("calc_rr_cr_diff works with infinite upper bound", {
   expect_equal(
     res$delta_loglik,
     c(0.0153674379906, 0.0577798617692, 0.1183728818772,
-      0.1874744710988, 0.2576194260618)
+      0.1874744710988, 0.2576194260618),
+    tolerance = 1e-5
   )
 })
 
@@ -42,6 +43,7 @@ test_that("calc_rr_cr_diff works with finite upper bound", {
   expect_equal(
     res$delta_loglik,
     c(0.0153674379906, 0.0577798617692, 0.1183728818772,
-      0.1874744710988, 0.2576194260618)
+      0.1874744710988, 0.2576194260618),
+    tolerance = 1e-5
   )
 })
