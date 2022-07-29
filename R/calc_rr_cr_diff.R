@@ -23,8 +23,8 @@ calc_rr_cr_diff <- function(island_clade,
                             par_upper_bound) {
 
   # get internal DAISIE functions to stop R CMD check giving note
-  DAISIE_loglik <- utils::getFromNamespace("DAISIE_loglik", ns = "DAISIE")
-  DAISIE_loglik_integrate <- utils::getFromNamespace(
+  DAISIE_loglik <- utils::getFromNamespace("DAISIE_loglik", ns = "DAISIE") #nolint
+  DAISIE_loglik_integrate <- utils::getFromNamespace( #nolint
     "DAISIE_loglik_integrate",
     ns = "DAISIE"
   )
@@ -85,7 +85,7 @@ calc_rr_cr_diff <- function(island_clade,
   # for the gamma distribution
   loglik_integrated <- c()
   for (i in seq_along(sd)) {
-    CS_version <- DAISIE::create_CS_version(
+    cs_version <- DAISIE::create_CS_version(
       model = 2,
       relaxed_par = relaxed_par,
       par_sd = sd[i],
@@ -98,7 +98,7 @@ calc_rr_cr_diff <- function(island_clade,
       stac = island_clade[[2]]$stac,
       missnumspec = missnumspec,
       methode = methode,
-      CS_version = CS_version,
+      CS_version = cs_version,
       abstolint = abstolint,
       reltolint = reltolint,
       verbose = verbose

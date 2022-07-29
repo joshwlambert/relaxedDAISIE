@@ -17,7 +17,7 @@
   # Canaries
 
   # remove superfluous meta data
-  Canaries[[1]] <- list(island_age = Canaries[[1]]$island_age,
+  Canaries[[1]] <- list(island_age = Canaries[[1]]$island_age, #nolint
                         not_present = Canaries[[1]]$not_present)
 
   # save island data
@@ -26,7 +26,7 @@
   # Comoros
 
   # remove superfluous meta data
-  Comoros[[1]] <- list(island_age = Comoros[[1]]$island_age,
+  Comoros[[1]] <- list(island_age = Comoros[[1]]$island_age, #nolint
                        not_present = Comoros[[1]]$not_present)
 
   # save island data
@@ -35,7 +35,7 @@
   # Galapagos
 
   # remove superfluous meta data
-  Galapagos[[1]] <- list(island_age = Galapagos[[1]]$island_age,
+  Galapagos[[1]] <- list(island_age = Galapagos[[1]]$island_age, #nolint
                          not_present = Galapagos[[1]]$not_present)
 
   # save island data
@@ -45,7 +45,7 @@
   # Hawaii
 
   # remove superfluous meta data
-  Hawaii[[1]] <- list(island_age = Hawaii[[1]]$island_age,
+  Hawaii[[1]] <- list(island_age = Hawaii[[1]]$island_age, #nolint
                       not_present = Hawaii[[1]]$not_present)
 
   # save island data
@@ -54,7 +54,7 @@
   # Marquesas
 
   # remove superfluous meta data
-  Marquesas[[1]] <- list(island_age = Marquesas[[1]]$island_age,
+  Marquesas[[1]] <- list(island_age = Marquesas[[1]]$island_age, #nolint
                          not_present = Marquesas[[1]]$not_present)
 
   # save island data
@@ -64,7 +64,7 @@
   # New Caledonia
 
   # remove superfluous meta data
-  New_Caledonia[[1]] <- list(island_age = New_Caledonia[[1]]$island_age,
+  New_Caledonia[[1]] <- list(island_age = New_Caledonia[[1]]$island_age, #nolint
                              not_present = New_Caledonia[[1]]$not_present)
 
   # save island data
@@ -74,7 +74,7 @@
   # Sao Tome and Principe
 
   # remove superfluous meta data
-  SaoTome_Principe[[1]] <- list(island_age = SaoTome_Principe[[1]]$island_age,
+  SaoTome_Principe[[1]] <- list(island_age = SaoTome_Principe[[1]]$island_age, #nolint
                                 not_present = SaoTome_Principe[[1]]$not_present)
 
   # save island data
