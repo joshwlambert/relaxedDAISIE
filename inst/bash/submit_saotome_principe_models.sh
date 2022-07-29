@@ -11,7 +11,7 @@ sbatch --job-name=ml_SaoTome_Principe DAISIEutils/bash/submit_run_daisie_ml_long
   SaoTome_Principe \
   cr_dd \
   relaxedDAISIE \
-  5 \
+  6 \
   NULL \
   lsodes \
   simplex \
@@ -25,7 +25,7 @@ sbatch --job-name=ml_SaoTome_Principe DAISIEutils/bash/submit_run_daisie_ml_long
   SaoTome_Principe \
   rr_lac_dd \
   relaxedDAISIE \
-  5 \
+  6 \
   NULL \
   lsodes \
   simplex \
@@ -39,7 +39,7 @@ sbatch --job-name=ml_SaoTome_Principe DAISIEutils/bash/submit_run_daisie_ml_long
   SaoTome_Principe \
   rr_mu_dd \
   relaxedDAISIE \
-  5 \
+  6 \
   NULL \
   lsodes \
   simplex \
@@ -53,7 +53,7 @@ sbatch --job-name=ml_SaoTome_Principe DAISIEutils/bash/submit_run_daisie_ml_long
   SaoTome_Principe \
   rr_k \
   relaxedDAISIE \
-  5 \
+  6 \
   NULL \
   lsodes \
   simplex \
@@ -67,7 +67,7 @@ sbatch --job-name=ml_SaoTome_Principe DAISIEutils/bash/submit_run_daisie_ml_long
   SaoTome_Principe \
   rr_gam_dd \
   relaxedDAISIE \
-  5 \
+  6 \
   NULL \
   lsodes \
   simplex \
@@ -81,7 +81,7 @@ sbatch --job-name=ml_SaoTome_Principe DAISIEutils/bash/submit_run_daisie_ml_long
   SaoTome_Principe \
   rr_laa_dd \
   relaxedDAISIE \
-  5 \
+  6 \
   NULL \
   lsodes \
   simplex \

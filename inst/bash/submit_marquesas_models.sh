@@ -11,7 +11,7 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_ml_long.sh \
   Marquesas \
   cr_dd \
   relaxedDAISIE \
-  5 \
+  6 \
   NULL \
   lsodes \
   simplex \
@@ -25,7 +25,7 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_ml_long.sh \
   Marquesas \
   rr_lac_dd \
   relaxedDAISIE \
-  5 \
+  6 \
   NULL \
   lsodes \
   simplex \
@@ -39,7 +39,7 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_ml_long.sh \
   Marquesas \
   rr_mu_dd \
   relaxedDAISIE \
-  5 \
+  6 \
   NULL \
   lsodes \
   simplex \
@@ -53,7 +53,7 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_ml_long.sh \
   Marquesas \
   rr_k \
   relaxedDAISIE \
-  5 \
+  6 \
   NULL \
   lsodes \
   simplex \
@@ -67,7 +67,7 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_ml_long.sh \
   Marquesas \
   rr_gam_dd \
   relaxedDAISIE \
-  5 \
+  6 \
   NULL \
   lsodes \
   simplex \
@@ -81,7 +81,7 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_ml_long.sh \
   Marquesas \
   rr_laa_dd \
   relaxedDAISIE \
-  5 \
+  6 \
   NULL \
   lsodes \
   simplex \
