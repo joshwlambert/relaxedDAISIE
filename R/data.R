@@ -180,3 +180,81 @@
 #' @source Valente et al. (2020) doi:
 #' \url{https://doi.org/10.1038/s41586-020-2022-5}
 "SaoTome_Principe"
+
+#' Community phylogenetic data for the birds of the Galapagos archipelago
+#'
+#' A dataset containing the age of the archipelago, number of species on
+#' mainland not present on the island, and each colonising clade with
+#' colonisation and branching times, endemicity status, missing species, and the
+#' type of species. With one island colonist designated as a different type.
+#'
+#' @format An object of class \code{list} of length 9:
+#' \describe{
+#'   \item{island_age}{Age of the island}
+#'   \item{not_present}{Number of mainland species that did not colonise the
+#'   island}
+#'   \item{colonist_name}{The name of the colonising clade}
+#'   \item{branching_times}{The age of the island and the colonisation and
+#'   subsequent branching times for a clade}
+#'   \item{stac}{Endemicity status for a clade}
+#'   \item{missing_species}{Number of species missing from a phylogeny of a
+#'   clade}
+#'   \item{type1or2}{Defines what type of species are in a clade, used for
+#'   2-type analysis}
+#'   ...
+#' }
+#' @source Valente et al. (2020) doi:
+#' \url{https://doi.org/10.1038/s41586-020-2022-5}
+"Galapagos_2type"
+
+#' Community phylogenetic data for the birds of the Hawaii archipelago
+#'
+#' A dataset containing the age of the archipelago, number of species on
+#' mainland not present on the island, and each colonising clade with
+#' colonisation and branching times, endemicity status, missing species, and the
+#' type of species. With one island colonist designated as a different type.
+#'
+#' @format An object of class \code{list} of length 9:
+#' \describe{
+#'   \item{island_age}{Age of the island}
+#'   \item{not_present}{Number of mainland species that did not colonise the
+#'   island}
+#'   \item{colonist_name}{The name of the colonising clade}
+#'   \item{branching_times}{The age of the island and the colonisation and
+#'   subsequent branching times for a clade}
+#'   \item{stac}{Endemicity status for a clade}
+#'   \item{missing_species}{Number of species missing from a phylogeny of a
+#'   clade}
+#'   \item{type1or2}{Defines what type of species are in a clade, used for
+#'   2-type analysis}
+#'   ...
+#' }
+#' @source Valente et al. (2020) doi:
+#' \url{https://doi.org/10.1038/s41586-020-2022-5}
+"Hawaii_2type"
+
+#' Community phylogenetic data for the birds of the Marquesas archipelago
+#'
+#' A dataset containing the age of the archipelago, number of species on
+#' mainland not present on the island, and each colonising clade with
+#' colonisation and branching times, endemicity status, missing species, and the
+#' type of species. With one island colonist designated as a different type.
+#'
+#' @format An object of class \code{list} of length 15:
+#' \describe{
+#'   \item{island_age}{Age of the island}
+#'   \item{not_present}{Number of mainland species that did not colonise the
+#'   island}
+#'   \item{colonist_name}{The name of the colonising clade}
+#'   \item{branching_times}{The age of the island and the colonisation and
+#'   subsequent branching times for a clade}
+#'   \item{stac}{Endemicity status for a clade}
+#'   \item{missing_species}{Number of species missing from a phylogeny of a
+#'   clade}
+#'   \item{type1or2}{Defines what type of species are in a clade, used for
+#'   2-type analysis}
+#'   ...
+#' }
+#' @source Valente et al. (2020) doi:
+#' \url{https://doi.org/10.1038/s41586-020-2022-5}
+"Marquesas_2type"

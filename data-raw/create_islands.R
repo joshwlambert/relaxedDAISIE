@@ -41,6 +41,17 @@
   # save island data
   usethis::use_data(Galapagos, overwrite = TRUE)
 
+  # Galapagos 2 type
+
+  lGalapagos_2type <- Galapagos #nolint
+  Galapagos_2type[[1]] <- list(island_age = Galapagos[[1]]$island_age, #nolint
+                               not_present_type1 = 830,
+                               not_present_type2 = 162)
+  Galapagos_2type[[4]]$type1or2 <- 2 #nolint
+
+  # save island data
+  usethis::use_data(Galapagos_2type, overwrite = TRUE)
+
 
   # Hawaii
 
@@ -51,6 +62,17 @@
   # save island data
   usethis::use_data(Hawaii, overwrite = TRUE)
 
+  # Hawaii 2 type
+
+  Hawaii_2type <- Hawaii #nolint
+  Hawaii_2type[[1]] <- list(island_age = Hawaii[[1]]$island_age, #nolint
+                            not_present_type1 = 793,
+                            not_present_type2 = 199)
+  Hawaii_2type[[3]]$type1or2 <- 2 #nolint
+
+  # save island data
+  usethis::use_data(Hawaii_2type, overwrite = TRUE)
+
   # Marquesas
 
   # remove superfluous meta data
@@ -60,6 +82,16 @@
   # save island data
   usethis::use_data(Marquesas, overwrite = TRUE)
 
+  # Marquesas 2 type
+
+  Marquesas_2type <- Marquesas #nolint
+  Marquesas_2type[[1]] <- list(island_age = Marquesas[[1]]$island_age, #nolint
+                               not_present_type1 = 887,
+                               not_present_type2 = 99)
+  Marquesas_2type[[2]]$type1or2 <- 2 #nolint
+
+  # save island data
+  usethis::use_data(Marquesas_2type, overwrite = TRUE)
 
   # New Caledonia
 
