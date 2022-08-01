@@ -20,6 +20,6 @@ Suggests:
 Config/testthat/edition: 3
 Remotes:
     rsetienne/DAISIE@relaxed,
-    tece-lab/DAISIEutils@relaxed_immig
+    tece-lab/DAISIEutils@develop
 Depends: 
     R (>= 2.10)
