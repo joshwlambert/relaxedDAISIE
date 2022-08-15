@@ -18,6 +18,7 @@ sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh
   FALSE \
   NULL \
   100 \
+  Inf \
 
 sleep 5
 
@@ -31,6 +32,7 @@ sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh
   simplex \
   FALSE \
   NULL \
+  100 \
   100 \
 
 sleep 5
@@ -46,6 +48,7 @@ sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh
   FALSE \
   NULL \
   100 \
+  100 \
 
 sleep 5
 
@@ -60,6 +63,7 @@ sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh
   FALSE \
   NULL \
   100 \
+  Inf \
 
 sleep 5
 
@@ -74,6 +78,7 @@ sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh
   FALSE \
   NULL \
   100 \
+  1 \
 
 sleep 5
 
@@ -87,4 +92,5 @@ sbatch --job-name=ml_New_Caledonia DAISIEutils/bash/submit_run_daisie_ml_long.sh
   simplex \
   FALSE \
   NULL \
+  100 \
   100 \
