@@ -94,3 +94,95 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_ml_long.sh \
   NULL \
   100 \
   100 \
+
+sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
+  Marquesas_2type \
+  cr_dd_2type_lac \
+  relaxedDAISIE \
+  6 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
+  0.1 \
+
+sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
+  Marquesas_2type \
+  cr_dd_2type_mu \
+  relaxedDAISIE \
+  6 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
+  0.1 \
+
+sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
+  Marquesas_2type \
+  cr_dd_2type_k \
+  relaxedDAISIE \
+  6 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
+  0.1 \
+
+sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
+  Marquesas_2type \
+  cr_dd_2type_lac_mu \
+  relaxedDAISIE \
+  6 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
+  0.1 \
+
+sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
+  Marquesas_2type \
+  cr_dd_2type_lac_k \
+  relaxedDAISIE \
+  6 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
+  0.1 \
+
+sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
+  Marquesas_2type \
+  cr_dd_2type_mu_k \
+  relaxedDAISIE \
+  6 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
+  0.1 \
+
+sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
+  Marquesas_2type \
+  cr_dd_2type_lac_mu_k \
+  relaxedDAISIE \
+  6 \
+  NULL \
+  lsodes \
+  simplex \
+  FALSE \
+  NULL \
+  100 \
+  0.1 \
+
