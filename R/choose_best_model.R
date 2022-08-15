@@ -30,12 +30,13 @@ choose_best_model <- function(data_name,
   # read in the data
   results <- lapply(
     as.list(
-      file.path(
-        "inst",
+      system.file(
         "extdata",
         "raw_daisie_output",
         data_name,
-        files
+        files,
+        package = "relaxedDAISIE",
+        mustWork = TRUE
       )
     ),
     readRDS
