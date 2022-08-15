@@ -98,7 +98,7 @@ sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_ml_long.sh \
 sleep 5
 
 sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
-  Galapagos \
+  Galapagos_2type \
   cr_dd_2type_lac \
   relaxedDAISIE \
   6 \
@@ -111,7 +111,7 @@ sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_2type_ml_long.
   0.163 \
 
 sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
-  Galapagos \
+  Galapagos_2type \
   cr_dd_2type_mu \
   relaxedDAISIE \
   6 \
@@ -124,7 +124,7 @@ sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_2type_ml_long.
   0.163 \
 
 sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
-  Galapagos \
+  Galapagos_2type \
   cr_dd_2type_k \
   relaxedDAISIE \
   6 \
@@ -137,7 +137,7 @@ sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_2type_ml_long.
   0.163 \
 
 sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
-  Galapagos \
+  Galapagos_2type \
   cr_dd_2type_lac_mu \
   relaxedDAISIE \
   6 \
@@ -150,7 +150,7 @@ sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_2type_ml_long.
   0.163 \
 
 sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
-  Galapagos \
+  Galapagos_2type \
   cr_dd_2type_lac_k \
   relaxedDAISIE \
   6 \
@@ -163,7 +163,7 @@ sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_2type_ml_long.
   0.163 \
 
 sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
-  Galapagos \
+  Galapagos_2type \
   cr_dd_2type_mu_k \
   relaxedDAISIE \
   6 \
@@ -176,7 +176,7 @@ sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_2type_ml_long.
   0.163 \
 
 sbatch --job-name=ml_Galapagos DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
-  Galapagos \
+  Galapagos_2type \
   cr_dd_2type_lac_mu_k \
   relaxedDAISIE \
   6 \
