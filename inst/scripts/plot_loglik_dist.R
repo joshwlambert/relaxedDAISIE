@@ -12,7 +12,17 @@ ggplot2::ggplot(data = results_tbl) +
     )
   ) +
   ggplot2::facet_wrap(
-    facets = "island", scales = "free", strip.position = "bottom"
+    facets = "island", scales = "free",
+    strip.position = "bottom",
+    labeller = ggplot2::labeller("island" = c(
+      "Canaries" = "Canaries",
+      "Comoros" = "Comoros",
+      "Galapagos" = "Galápagos",
+      "Hawaii" = "Hawai'i",
+      "Marquesas" = "Marquesas",
+      "New_Caledonia" = "New Caledonia",
+      "SaoTome_Principe" = "São Tomé & Príncipe"
+    ))
   ) +
   ggplot2::geom_hline(yintercept = 0, linetype = "dashed") +
   ggplot2::scale_y_continuous(name = "DAISIE loglikelihood") +
@@ -48,5 +58,3 @@ ggplot2::ggplot(data = results_tbl) +
     strip.text = ggplot2::element_text(size = 12),
     strip.placement = "outside"
   )
-
-
