@@ -106,7 +106,7 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.
   FALSE \
   NULL \
   100 \
-  0.1 \
+  0.05 \
 
 sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
   Marquesas_2type \
@@ -119,7 +119,7 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.
   FALSE \
   NULL \
   100 \
-  0.1 \
+  0.05 \
 
 sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
   Marquesas_2type \
@@ -132,7 +132,7 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.
   FALSE \
   NULL \
   100 \
-  0.1 \
+  0.05 \
 
 sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
   Marquesas_2type \
@@ -145,7 +145,7 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.
   FALSE \
   NULL \
   100 \
-  0.1 \
+  0.05 \
 
 sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
   Marquesas_2type \
@@ -158,7 +158,7 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.
   FALSE \
   NULL \
   100 \
-  0.1 \
+  0.05 \
 
 sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
   Marquesas_2type \
@@ -171,7 +171,7 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.
   FALSE \
   NULL \
   100 \
-  0.1 \
+  0.05 \
 
 sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.sh \
   Marquesas_2type \
@@ -184,5 +184,5 @@ sbatch --job-name=ml_Marquesas DAISIEutils/bash/submit_run_daisie_2type_ml_long.
   FALSE \
   NULL \
   100 \
-  0.1 \
+  0.05 \
 
