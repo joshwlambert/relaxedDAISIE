@@ -1,4 +1,5 @@
-islands <- c("Canaries", "Comoros", "Galapagos", "Hawaii", "Marquesas", "New_Caledonia", "SaoTome_Principe")
+islands <- c("Canaries", "Comoros", "Galapagos", "Hawaii", "Marquesas",
+             "New_Caledonia", "SaoTome_Principe")
 
 results_tbl <- daisie_results_as_df(islands = islands)
 
