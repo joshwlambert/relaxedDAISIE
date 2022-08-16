@@ -1,50 +1,8 @@
-data <- c("Canaries", "Comoros", "Galapagos", "Hawaii", "Marquesas", "New_Caledonia", "SaoTome_Principe")
+islands <- c("Canaries", "Comoros", "Galapagos", "Hawaii", "Marquesas", "New_Caledonia", "SaoTome_Principe")
 
-data_tbl <- data.frame()
+results_tbl <- daisie_results_as_df(islands = islands)
 
-for (data_name in data) {
-  # get the files names
-  files <- list.files(
-    system.file(
-      "extdata",
-      "raw_daisie_output",
-      data_name,
-      package = "relaxedDAISIE",
-      mustWork = TRUE
-    )
-  )
-
-  # get which files for the model
-  files <- files[-grep(pattern = "cr_dd", x = files)]
-
-  # read in the data
-  results <- lapply(
-    as.list(
-      system.file(
-        "extdata",
-        "raw_daisie_output",
-        data_name,
-        files,
-        package = "relaxedDAISIE",
-        mustWork = TRUE
-      )
-    ),
-    readRDS
-  )
-
-
-  results_tbl <- Reduce(rbind, results)
-  island_model <- gsub(pattern = "_[0-9]+.rds$", replacement = "", x = files)
-  island <- gsub("_rr.*","",island_model)
-  model <- gsub(pattern = paste0(island[1], "_"), replacement = "", island_model)
-  results_tbl$model <- model
-  results_tbl$island <- island
-
-  data_tbl <- rbind(data_tbl, results_tbl)
-}
-
-
-ggplot2::ggplot(data = data_tbl) +
+ggplot2::ggplot(data = results_tbl) +
   ggplot2::geom_boxplot(
     mapping = ggplot2::aes(
       x = model,
@@ -60,6 +18,7 @@ ggplot2::ggplot(data = data_tbl) +
   ggplot2::scale_x_discrete(
     name = "Relaxed-rate DAISIE model",
     labels = c(
+      "cr_dd" = "HR",
       "rr_gam_dd" = "Col",
       "rr_k" = "K'",
       "rr_laa_dd" = "Ana",
@@ -70,8 +29,8 @@ ggplot2::ggplot(data = data_tbl) +
   ggplot2::scale_fill_brewer(
     palette = "Set3",
     name = "Model",
-    breaks = c("rr_gam_dd", "rr_k", "rr_laa_dd", "rr_lac_dd", "rr_mu_dd"),
-    labels = c("Colonisation", "Carrying Capacity", "Anagenesis", "Cladogenesis", "Extinction")
+    breaks = c("cr_dd", "rr_gam_dd", "rr_k", "rr_laa_dd", "rr_lac_dd", "rr_mu_dd"),
+    labels = c("HR", "Colonisation", "Carrying Capacity", "Anagenesis", "Cladogenesis", "Extinction")
   ) +
   ggplot2::theme_classic() +
   ggplot2::theme(

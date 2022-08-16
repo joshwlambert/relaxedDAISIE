@@ -1,49 +1,9 @@
-data <- c("Canaries", "Comoros", "Galapagos", "Hawaii", "Marquesas", "New_Caledonia", "SaoTome_Principe")
+islands <- c("Canaries", "Comoros", "Galapagos", "Hawaii", "Marquesas", "New_Caledonia", "SaoTome_Principe")
 
-# before outliers are removed
-
-model_fit_tbl <- data.frame()
-
-for (data_name in data) {
-  # get the files names
-  files <- list.files(
-    system.file(
-      "extdata",
-      "raw_daisie_output",
-      data_name,
-      package = "relaxedDAISIE",
-      mustWork = TRUE
-    )
-  )
-
-  # read in the data
-  results <- lapply(
-    as.list(
-      system.file(
-        "extdata",
-        "raw_daisie_output",
-        data_name,
-        files,
-        package = "relaxedDAISIE",
-        mustWork = TRUE
-      )
-    ),
-    readRDS
-  )
-
-  model_fit <- lapply(results, \(x) {
-    x[c("loglik", "bic")]
-  })
-
-  temp_model_fit_tbl <- Reduce(rbind, model_fit)
-
-  temp_model_fit_tbl$island <- rep(data_name, nrow(temp_model_fit_tbl))
-
-  model_fit_tbl <- rbind(model_fit_tbl, temp_model_fit_tbl)
-}
+results_tbl <- daisie_results_as_df(islands = islands)
 
 # plot
-ggplot2::ggplot(data = model_fit_tbl) +
+ggplot2::ggplot(data = results_tbl) +
   ggplot2::geom_point(
     mapping = ggplot2::aes(
       x = loglik,

@@ -2,4 +2,5 @@
 
 export(calc_rr_cr_diff)
 export(choose_best_model)
+export(daisie_results_as_df)
 export(foo)
