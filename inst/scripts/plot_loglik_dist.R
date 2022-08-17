@@ -3,7 +3,7 @@ islands <- c("Canaries", "Comoros", "Galapagos", "Hawaii", "Marquesas",
 
 results_tbl <- daisie_results_as_df(islands = islands)
 
-ggplot2::ggplot(data = results_tbl) +
+loglik_dist <- ggplot2::ggplot(data = results_tbl) +
   ggplot2::geom_boxplot(
     mapping = ggplot2::aes(
       x = model,
@@ -27,7 +27,7 @@ ggplot2::ggplot(data = results_tbl) +
   ggplot2::geom_hline(yintercept = 0, linetype = "dashed") +
   ggplot2::scale_y_continuous(name = "DAISIE loglikelihood") +
   ggplot2::scale_x_discrete(
-    name = "Relaxed-rate DAISIE model",
+    name = "DAISIE model",
     labels = c(
       "cr_dd" = "HR",
       "rr_gam_dd" = "Col",
@@ -58,3 +58,13 @@ ggplot2::ggplot(data = results_tbl) +
     strip.text = ggplot2::element_text(size = 12),
     strip.placement = "outside"
   )
+
+ggplot2::ggsave(
+  plot = loglik_dist,
+  filename = file.path("inst", "plots", "loglik_dist.png"),
+  device = "png",
+  width = 250,
+  height = 150,
+  units = "mm",
+  dpi = 300
+)
