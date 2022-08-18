@@ -20,9 +20,9 @@ wmap_df_robin <- fortify(wmap_robin)
 
 
 setwd(file.path("inst", "extdata", "plotting_data"))
-bbox <- readOGR("ne_110m_graticules_all", layer="ne_110m_wgs84_bounding_box")
+bbox <- readOGR("ne_110m_graticules_all", layer = "ne_110m_wgs84_bounding_box")
 setwd(here::here())
-bbox_df<- fortify(bbox)
+bbox_df <- fortify(bbox)
 bbox_robin <- spTransform(bbox, CRS("+proj=robin"))  # reproject bounding box
 bbox_robin_df <- fortify(bbox_robin)
 
@@ -57,7 +57,7 @@ map <- ggplot(
     alpha = 0.5
   ) +
   coord_equal() +
-  scale_fill_manual(values=c("black", "white")) +
+  scale_fill_manual(values = c("black", "white")) +
   guides(colour = "none", fill = "none") +
   scale_size_continuous(
     name = "Island Species Diversity",
