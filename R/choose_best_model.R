@@ -25,7 +25,7 @@ choose_best_model <- function(data_name,
   )
 
   # get which files for the model
-  files <- files[grep(pattern = model, x = files)]
+  files <- files[grep(pattern = paste(model, "[0-9]", sep = "_"), x = files)]
 
   # read in the data
   results <- lapply(
