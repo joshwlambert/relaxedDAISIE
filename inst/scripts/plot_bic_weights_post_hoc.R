@@ -198,7 +198,8 @@ bic_weights <- ggplot2::ggplot(data = bic_tbl) +
       "hawaii" = "Hawai'i",
       "marquesas" = "Marquesas"
     )
-  )
+  ) +
+  ggplot2::theme_classic()
 
 ggplot2::ggsave(
   plot = bic_weights,

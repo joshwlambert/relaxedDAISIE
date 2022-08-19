@@ -232,7 +232,8 @@ bic_weights <- ggplot2::ggplot(data = bic_tbl) +
       "new_caledonia" = "New Caledonia",
       "saotome_principe" = "São Tomé & Príncipe"
     )
-  )
+  ) +
+  ggplot2::theme_classic()
 
 ggplot2::ggsave(
   plot = bic_weights,
