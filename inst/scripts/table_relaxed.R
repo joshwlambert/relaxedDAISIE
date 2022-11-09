@@ -67,18 +67,58 @@ islands <- c(islands, "Canaries", "Hawaii")
 names(tab_list) <- islands
 
 tab_list <- lapply(tab_list, \(x) {
+  x$model <- toupper(x$model)
+  x$model <- gsub(pattern = "CR", replacement = "HR", x = x$model)
+  x$model <- gsub(pattern = "_", replacement = " ", x = x$model)
+  x$model <- gsub(pattern = "LAC", replacement = "$\\\\lambda^c$", x = x$model)
+  x$model <- gsub(pattern = "MU", replacement = "$\\\\mu$", x = x$model)
+  x$model <- gsub(pattern = "LAA", replacement = "$\\\\lambda^a$", x = x$model)
+  x$model <- gsub(pattern = "RR ", replacement = "RR", x = x$model)
+  x
+})
+
+tab_list <- lapply(tab_list, \(x) {
   colnames(x) <- c("Model", "$\\lambda^a$", "$\\mu$", "$K'$", "$\\gamma$",
                    "$\\lambda^a$", "$\\sigma$", "loglik", "BIC")
   x
 })
 
+# add archipelago names to data frame
+tab_list <- Map(
+  f = function(x, arch) {
+    cbind(Archipelago = replicate(expr = arch, n = nrow(x)), x)
+  },
+  tab_list,
+  names(tab_list)
+)
+
+tab_list <- lapply(tab_list, \(x) {
+  x$Archipelago[1] <- paste0(
+    "\\multirow{", nrow(x), "}{*}{", x$Archipelago[1], "}"
+  )
+  x$Archipelago[2:nrow(x)] <- rep("", length(2:nrow(x)))
+  x
+})
 
 print(
   xtable(
-    tab_list[[1]], digits = 3),
+    tab_list[[1]],
+    digits = 3,
+    align = "ccccccccccc",
+    caption = paste0(
+      "Maximum likelihood results for the Hawaii archipelago for a selection ",
+      "of homogeneous-rate (HR) and relaxed-rate (RR) models. Parameters ",
+      "estimated are: cladogenesis ($\\lambda^c$), extinction ($\\mu$), ",
+      "carrying capacity (\\textit{K}, colonisation ($\\gamma$), anagenesis ",
+      "($\\lambda^a$), standard deviation of relaxed parameter ($\\sigma$), as ",
+      "well as the models maximised log likelihood (loglik) and Bayesian ",
+      "Information Criterion (BIC)."),
+    label = paste0("tab:", names(tab_list[1]))
+  ),
   math.style.exponents = TRUE,
   NA.string = "NA",
   include.rownames = FALSE,
   hline.after = c(0, 0),
-  sanitize.colnames.function = identity
+  sanitize.colnames.function = identity,
+  sanitize.text.function = force
 )
