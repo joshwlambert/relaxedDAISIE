@@ -78,7 +78,7 @@ tab_list <- lapply(tab_list, \(x) {
 })
 
 tab_list <- lapply(tab_list, \(x) {
-  colnames(x) <- c("Model", "$\\lambda^a$", "$\\mu$", "$K'$", "$\\gamma$",
+  colnames(x) <- c("Model", "$\\lambda^c$", "$\\mu$", "$K'$", "$\\gamma$",
                    "$\\lambda^a$", "$\\sigma$", "loglik", "BIC")
   x
 })
@@ -100,25 +100,27 @@ tab_list <- lapply(tab_list, \(x) {
   x
 })
 
-print(
-  xtable(
-    tab_list[[1]],
-    digits = 3,
-    align = "ccccccccccc",
-    caption = paste0(
-      "Maximum likelihood results for the Hawaii archipelago for a selection ",
-      "of homogeneous-rate (HR) and relaxed-rate (RR) models. Parameters ",
-      "estimated are: cladogenesis ($\\lambda^c$), extinction ($\\mu$), ",
-      "carrying capacity (\\textit{K}, colonisation ($\\gamma$), anagenesis ",
-      "($\\lambda^a$), standard deviation of relaxed parameter ($\\sigma$), as ",
-      "well as the models maximised log likelihood (loglik) and Bayesian ",
-      "Information Criterion (BIC)."),
-    label = paste0("tab:", names(tab_list[1]))
-  ),
-  math.style.exponents = TRUE,
-  NA.string = "NA",
-  include.rownames = FALSE,
-  hline.after = c(0, 0),
-  sanitize.colnames.function = identity,
-  sanitize.text.function = force
-)
+for (i in seq_along(islands)) {
+  print(
+    xtable(
+      tab_list[[i]],
+      digits = 3,
+      align = "ccccccccccc",
+      caption = paste0(
+        "Maximum likelihood results for the ", islands[i],  " archipelago for",
+        "a selection of homogeneous-rate (HR) and relaxed-rate (RR) models. ",
+        "Parameters estimated are: cladogenesis ($\\lambda^c$), extinction ",
+        "($\\mu$), carrying capacity (\\textit{K}, colonisation ($\\gamma$), ",
+        "anagenesis ($\\lambda^a$), standard deviation of relaxed parameter ",
+        "($\\sigma$), as well as the models maximised log likelihood (loglik) ",
+        "and Bayesian Information Criterion (BIC)."),
+      label = paste0("tab:", islands[i])
+    ),
+    math.style.exponents = TRUE,
+    NA.string = "NA",
+    include.rownames = FALSE,
+    hline.after = c(0, 0),
+    sanitize.colnames.function = identity,
+    sanitize.text.function = force
+  )
+}
