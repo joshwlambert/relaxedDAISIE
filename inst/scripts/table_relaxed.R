@@ -28,7 +28,7 @@ for (i in seq_along(islands)) {
 canaries_models <- c("cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_laa_dd")
 tab <- data.frame()
 for (model in canaries_models) {
-  best_model <- choose_best_model(data_name = islands[i], model = model)
+  best_model <- choose_best_model(data_name = "Canaries", model = model)
   if (model == "cr_dd") {
     best_model <- cbind(best_model, sd = NA_real_)
     best_model <-
@@ -47,7 +47,7 @@ tab_list[[length(tab_list) + 1]] <- tab
 hawaii_models <- c("cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_k")
 tab <- data.frame()
 for (model in hawaii_models) {
-  best_model <- choose_best_model(data_name = islands[i], model = model)
+  best_model <- choose_best_model(data_name = Hawaii, model = model)
   if (model == "cr_dd") {
     best_model <- cbind(best_model, sd = NA_real_)
     best_model <-
@@ -73,6 +73,7 @@ tab_list <- lapply(tab_list, \(x) {
   x$model <- gsub(pattern = "LAC", replacement = "$\\\\lambda^c$", x = x$model)
   x$model <- gsub(pattern = "MU", replacement = "$\\\\mu$", x = x$model)
   x$model <- gsub(pattern = "LAA", replacement = "$\\\\lambda^a$", x = x$model)
+  x$model <- gsub(pattern = "RR K", replacement = "RR $K'$", x = x$model)
   x$model <- gsub(pattern = "RR ", replacement = "RR", x = x$model)
   x
 })
@@ -102,20 +103,34 @@ tab_list <- lapply(tab_list, \(x) {
 
 for (i in seq_along(islands)) {
   print(
-    xtable(
+    xtable::xtable(
       tab_list[[i]],
-      digits = 3,
+      digits = c(
+        3, # rownames
+        3, # archipelago name
+        3, # model name
+        4, # cladogenesis
+        4, # extincton
+        5, # carrying capacity
+        3, # colonisation
+        4, # anagenesis
+        6, # sd
+        6, # loglik
+        6  # BIC
+      ),
+      display = c("s", "s", rep("g", 9)),
       align = "ccccccccccc",
       caption = paste0(
-        "Maximum likelihood results for the ", islands[i],  " archipelago for",
+        "Maximum likelihood results for the ", islands[i], " archipelago for ",
         "a selection of homogeneous-rate (HR) and relaxed-rate (RR) models. ",
         "Parameters estimated are: cladogenesis ($\\lambda^c$), extinction ",
         "($\\mu$), carrying capacity (\\textit{K}, colonisation ($\\gamma$), ",
         "anagenesis ($\\lambda^a$), standard deviation of relaxed parameter ",
         "($\\sigma$), as well as the models maximised log likelihood (loglik) ",
         "and Bayesian Information Criterion (BIC)."),
-      label = paste0("tab:", islands[i])
+      label = paste0("tab:", islands[i], "_ml")
     ),
+    size = "small",
     math.style.exponents = TRUE,
     NA.string = "NA",
     include.rownames = FALSE,

@@ -11,24 +11,23 @@ for (i in seq_along(islands)) {
     if (model == "cr_dd") {
       best_model <- cbind(
         best_model, sd = NA_real_, lambda_c2 = NA_real_, mu2 = NA_real_,
-        K2 = NA_real_, gamma2 = NA_real_, lambda_a2 = NA_real_
+        K2 = NA_real_
       )
       best_model <-
         best_model[, c(
           "lambda_c", "mu", "K", "gamma", "lambda_a", "lambda_c2", "mu2", "K2",
-          "gamma2", "lambda_a2", "sd", "loglik", "bic"
+          "sd", "loglik", "bic"
         )]
     } else if (grepl("rr_", model)) {
       rm_index <- which(colnames(best_model) %in% c("df", "conv"))
       best_model <- best_model[, -rm_index]
       best_model <- cbind(
-        best_model, lambda_c2 = NA_real_, mu2 = NA_real_, K2 = NA_real_,
-        gamma2 = NA_real_, lambda_a2 = NA_real_
+        best_model, lambda_c2 = NA_real_, mu2 = NA_real_, K2 = NA_real_
       )
       best_model <-
         best_model[, c(
           "lambda_c", "mu", "K", "gamma", "lambda_a", "lambda_c2", "mu2", "K2",
-          "gamma2", "lambda_a2", "sd", "loglik", "bic"
+          "sd", "loglik", "bic"
         )]
     }
     best_model <- cbind(model = model, best_model)
@@ -40,28 +39,27 @@ for (i in seq_along(islands)) {
 hawaii_models <- c("cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_k")
 tab <- data.frame()
 for (model in hawaii_models) {
-  best_model <- choose_best_model(data_name = islands[i], model = model)
+  best_model <- choose_best_model(data_name = "Hawaii", model = model)
   if (model == "cr_dd") {
     best_model <- cbind(
       best_model, sd = NA_real_, lambda_c2 = NA_real_, mu2 = NA_real_,
-      K2 = NA_real_, gamma2 = NA_real_, lambda_a2 = NA_real_
+      K2 = NA_real_
     )
     best_model <-
       best_model[, c(
         "lambda_c", "mu", "K", "gamma", "lambda_a", "lambda_c2", "mu2", "K2",
-        "gamma2", "lambda_a2", "sd", "loglik", "bic"
+        "sd", "loglik", "bic"
       )]
   } else if (grepl("rr_", model)) {
     rm_index <- which(colnames(best_model) %in% c("df", "conv"))
     best_model <- best_model[, -rm_index]
     best_model <- cbind(
-      best_model, lambda_c2 = NA_real_, mu2 = NA_real_, K2 = NA_real_,
-      gamma2 = NA_real_, lambda_a2 = NA_real_
+      best_model, lambda_c2 = NA_real_, mu2 = NA_real_, K2 = NA_real_
     )
     best_model <-
       best_model[, c(
         "lambda_c", "mu", "K", "gamma", "lambda_a", "lambda_c2", "mu2", "K2",
-        "gamma2", "lambda_a2", "sd", "loglik", "bic"
+        "sd", "loglik", "bic"
       )]
   }
   best_model <- cbind(model = model, best_model)
@@ -85,7 +83,7 @@ for (i in seq_along(islands)) {
     best_model <-
       best_model[, c(
         "lambda_c", "mu", "K", "gamma", "lambda_a", "lambda_c2", "mu2", "K2",
-        "gamma2", "lambda_a2", "sd", "loglik", "bic"
+        "sd", "loglik", "bic"
       )]
     best_model <- cbind(model = model, best_model)
     tab <- rbind(tab, best_model)
@@ -101,35 +99,58 @@ tab_list <- lapply(tab_list, \(x) {
   x$model <- gsub(pattern = "MU", replacement = "$\\\\mu$", x = x$model)
   x$model <- gsub(pattern = "LAA", replacement = "$\\\\lambda^a$", x = x$model)
   x$model <- gsub(pattern = "RR ", replacement = "RR", x = x$model)
+  x$model <- gsub(pattern = "2TYPE", replacement = "2T", x = x$model)
   x
 })
 
 tab_list <- lapply(tab_list, \(x) {
   colnames(x) <- c("Model", "$\\lambda^c$", "$\\mu$", "$K'$", "$\\gamma$",
-                   "$\\lambda^a$", "$\\lambda^c2$", "$\\mu$", "$K'2$",
-                   "$\\gamma2$", "$\\lambda^a2$", "$\\sigma$", "loglik", "BIC")
+                   "$\\lambda^a$", "$\\lambda^c_2$", "$\\mu_2$", "$K'_2$",
+                   "$\\sigma$", "loglik", "BIC")
   x
 })
 
 for (i in seq_along(islands)) {
   print(
-    xtable(
+    xtable::xtable(
       tab_list[[i]],
-      digits = 3,
-      align = "ccccccccccccccc",
+      digits = c(
+        3, # rownames
+        3, # model name
+        4, # cladogenesis
+        4, # extincton
+        5, # carrying capacity
+        3, # colonisation
+        4, # anagenesis
+        4, # cladogenesis 2
+        4, # extinction 2
+        5, # carrying capacity 2
+        6, # sd
+        6, # loglik
+        6  # BIC
+      ),
+      display = c("s", "s", rep("g", 11)),
+      align = "ccccccccccccc",
       caption = paste0(
         "Maximum likelihood results for the ",
         gsub(pattern = "_2type", replacement = "", x = islands[i]),
         " archipelago for ",
-        "a selection of homogeneous-rate (HR) and relaxed-rate (RR) models. ",
+        "a selection of homogeneous-rate (HR), relaxed-rate (RR) ",
+        "and homogeneous-rate 2-type (HR 2T) models. In the 2-type models the ",
+        "parameter which has two regimes is specified after 2T, this can be a ",
+        "single parameter or multiple parameters. ",
         "Parameters estimated are: cladogenesis ($\\lambda^c$), extinction ",
-        "($\\mu$), carrying capacity (\\textit{K}, colonisation ($\\gamma$), ",
+        "($\\mu$), carrying capacity (\\textit{K}), colonisation ($\\gamma$), ",
         "anagenesis ($\\lambda^a$), standard deviation of relaxed parameter ",
         "($\\sigma$), as well as the models maximised log likelihood (loglik) ",
-        "and Bayesian Information Criterion (BIC)."),
-      label = paste0("tab:", islands[i])
+        "and Bayesian Information Criterion (BIC). The 2-type parameters are: ",
+        "cladogenesis ($\\lambda^c_2$), extinction ($\\mu_2$), carrying ",
+        "capacity ($K'_2$). When parameters are not estimated (e.g. $\\mu_2$ ",
+        "in HR 2T $\\lambda^c$), they are fixed to be equal to the ",
+        "corresponding parameter, in this case $\\mu_2$ = $\\mu$."),
+      label = paste0("tab:", islands[i], "_ml")
     ),
-    size = "scriptsize",
+    size = "small",
     math.style.exponents = TRUE,
     NA.string = "NA",
     include.rownames = FALSE,
