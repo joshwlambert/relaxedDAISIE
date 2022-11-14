@@ -47,7 +47,7 @@ tab_list[[length(tab_list) + 1]] <- tab
 hawaii_models <- c("cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_k")
 tab <- data.frame()
 for (model in hawaii_models) {
-  best_model <- choose_best_model(data_name = Hawaii, model = model)
+  best_model <- choose_best_model(data_name = "Hawaii", model = model)
   if (model == "cr_dd") {
     best_model <- cbind(best_model, sd = NA_real_)
     best_model <-

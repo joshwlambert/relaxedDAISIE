@@ -156,6 +156,7 @@ for (i in seq_along(islands)) {
     include.rownames = FALSE,
     hline.after = c(0, 0),
     sanitize.colnames.function = identity,
-    sanitize.text.function = force
+    sanitize.text.function = force,
+    floating.environment = "sidewaystable"
   )
 }
