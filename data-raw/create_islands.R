@@ -38,6 +38,9 @@
   Galapagos[[1]] <- list(island_age = Galapagos[[1]]$island_age, #nolint
                          not_present = Galapagos[[1]]$not_present)
 
+  # fix typo
+  Galapagos[[4]]$colonist_name <- "Camarhynchus heliobates"
+
   # save island data
   usethis::use_data(Galapagos, overwrite = TRUE)
 
