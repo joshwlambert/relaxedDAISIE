@@ -140,7 +140,7 @@ norm_island_phy_dist_list$Canaries <- norm_island_phy_dist
 data("Comoros")
 Comoros
 
-col_names <- colonist_names(daisie_data = Canaries)
+col_names <- colonist_names(daisie_data = Comoros)
 tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
 
 missing_species <- vapply(
@@ -153,28 +153,27 @@ col_names[missing_species]
 # those that are not found in the tree (TRUE) are replaced by sister species
 # that are found by manually inspecting the tree
 
-col_names[[2]] <- "Fringilla_teydea"
-col_names[[4]] <- "Parus_caeruleus"
-col_names[[10]] <- "Parus_cyanus"
-col_names[[14]] <- "Fringilla_coelebs"
-col_names[[18]] <- "Carduelis_chloris"
-col_names[[24]] <- "Miliaria_calandra"
-col_names[[25]] <- "Carduelis_sinica"
-col_names[[26]] <- "Carduelis_ambigua"
-col_names[[27]] <- "Emberiza_cabanisi"
-col_names[[28]] <- "Erithacus_komadori"
-col_names[[29]] <- "Fringilla_montifringilla"
-col_names[[30]] <- "Turdus_pilaris"
-col_names[[43]] <- "Serinus_canaria"
-col_names[[44]] <- "Carduelis_cannabina"
-col_names[[45]] <- "Parus_major"
+col_names[[1]] <- "Nectarinia_humbloti"
+col_names[[2]] <- "Muscicapa_caerulescens"
+col_names[[6]] <- "Cyanolanius_madagascarinus"
+col_names[[8]] <- "Nectarinia_coquerellii"
+col_names[[9]] <- "Foudia_madagascariensis"
+col_names[[11]] <- "Nesoenas_picturata"
+col_names[[13]] <- "Zosterops_modestus"
+col_names[[14]] <- "Nesillas_typica"
+col_names[[15]] <- "Coracopsis_vasa"
+col_names[[16]] <- "Treron_australis"
+col_names[[18]] <- "Saxicola_dacotiae"
+col_names[[21]] <- "Columba_oenas"
+col_names[[24]] <- "Alectroenas_madagascariensis"
+col_names[[26]] <- "Terpsiphone_viridis"
+col_names[[29]] <- "Turtur_chalcospilos"
 
 # remove duplicate names to prevent under counting phylogenetic distance
 
-col_names[[7]] <- "Erithacus_akahige"
-col_names[[12]] <- "Regulus_madeirensis"
-col_names[[21]] <- "Alauda_arvensis"
-col_names[[33]] <- "Luscinia_sibilans"
+col_names[[15]] <- ""
+col_names[[17]] <- ""
+col_names[[20]] <- ""
 
 tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
 
