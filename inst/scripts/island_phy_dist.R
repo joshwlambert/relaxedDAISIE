@@ -44,42 +44,6 @@ grep_tree <- function(tree, colonist_names) {
   tree_index_list
 }
 
-# Galapagos
-
-data("Galapagos")
-Galapagos
-
-col_names <- colonist_names(daisie_data = Galapagos)
-tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
-
-missing_species <- vapply(
-  tree_index,
-  \(x) ifelse(length(x) == 0, TRUE, FALSE),
-  FUN.VALUE = logical(1)
-)
-col_names[missing_species]
-
-# those that are not found in the tree (TRUE) are replaced by sister species
-# that are found by manually inspecting the tree
-
-col_names[[6]] <- "Pyrocephalus_rubinus"
-col_names[[7]] <- "Myiarchus_tyrannulus"
-col_names[[8]] <- "Setophaga_ruticilla"
-
-tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
-
-island_tree <- ape::keep.tip(phy = bird_tree, tip = tree_index)
-island_tree
-plot(island_tree)
-
-island_phy_dist <- sum(island_tree$edge.length)
-island_phy_dist
-
-norm_island_phy_dist <- island_phy_dist / island_tree$Nnode + 1
-norm_island_phy_dist
-
-norm_island_phy_dist_list$Galapagos <- norm_island_phy_dist
-
 # Canaries
 
 data("Canaries")
@@ -160,8 +124,8 @@ col_names[[8]] <- "Nectarinia_coquerellii"
 col_names[[9]] <- "Foudia_madagascariensis"
 col_names[[11]] <- "Nesoenas_picturata"
 col_names[[13]] <- "Zosterops_modestus"
-col_names[[14]] <- "Nesillas_typica"
-col_names[[15]] <- "Coracopsis_vasa"
+col_names[[14]] <- "Hippolais_polyglotta"
+col_names[[15]] <- "Coracopsis_nigra"
 col_names[[16]] <- "Treron_australis"
 col_names[[18]] <- "Saxicola_dacotiae"
 col_names[[21]] <- "Columba_oenas"
@@ -171,9 +135,7 @@ col_names[[29]] <- "Turtur_chalcospilos"
 
 # remove duplicate names to prevent under counting phylogenetic distance
 
-col_names[[15]] <- ""
-col_names[[17]] <- ""
-col_names[[20]] <- ""
+col_names[[20]] <- "Hippolais_icterina"
 
 tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
 
@@ -187,5 +149,185 @@ island_phy_dist
 norm_island_phy_dist <- island_phy_dist / island_tree$Nnode + 1
 norm_island_phy_dist
 
-norm_island_phy_dist_list$Canaries <- norm_island_phy_dist
+norm_island_phy_dist_list$Comoros <- norm_island_phy_dist
 
+# Galapagos
+
+data("Galapagos")
+Galapagos
+
+col_names <- colonist_names(daisie_data = Galapagos)
+tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
+
+missing_species <- vapply(
+  tree_index,
+  \(x) ifelse(length(x) == 0, TRUE, FALSE),
+  FUN.VALUE = logical(1)
+)
+col_names[missing_species]
+
+# those that are not found in the tree (TRUE) are replaced by sister species
+# that are found by manually inspecting the tree
+
+col_names[[6]] <- "Pyrocephalus_rubinus"
+col_names[[7]] <- "Myiarchus_tyrannulus"
+col_names[[8]] <- "Setophaga_ruticilla"
+
+tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
+
+island_tree <- ape::keep.tip(phy = bird_tree, tip = tree_index)
+island_tree
+plot(island_tree)
+
+island_phy_dist <- sum(island_tree$edge.length)
+island_phy_dist
+
+norm_island_phy_dist <- island_phy_dist / island_tree$Nnode + 1
+norm_island_phy_dist
+
+norm_island_phy_dist_list$Galapagos <- norm_island_phy_dist
+
+# Hawaii
+
+data("Hawaii")
+Hawaii
+
+col_names <- colonist_names(daisie_data = Hawaii)
+tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
+
+missing_species <- vapply(
+  tree_index,
+  \(x) ifelse(length(x) == 0, TRUE, FALSE),
+  FUN.VALUE = logical(1)
+)
+col_names[missing_species]
+
+# those that are not found in the tree (TRUE) are replaced by sister species
+# that are found by manually inspecting the tree
+
+col_names[[1]] <- "Hypocolius_ampelinus"
+col_names[[2]] <- "Hemignathus_kauaiensis"
+col_names[[5]] <- "Chasiempis_sandwichensis"
+col_names[[7]] <- "Corvus_coronoides"
+col_names[[8]] <- "Corvus_nasicus"
+
+tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
+
+island_tree <- ape::keep.tip(phy = bird_tree, tip = tree_index)
+island_tree
+plot(island_tree)
+
+island_phy_dist <- sum(island_tree$edge.length)
+island_phy_dist
+
+norm_island_phy_dist <- island_phy_dist / island_tree$Nnode + 1
+norm_island_phy_dist
+
+norm_island_phy_dist_list$Hawaii <- norm_island_phy_dist
+
+# Marquesas
+
+data("Marquesas")
+Marquesas
+
+col_names <- colonist_names(daisie_data = Marquesas)
+tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
+
+missing_species <- vapply(
+  tree_index,
+  \(x) ifelse(length(x) == 0, TRUE, FALSE),
+  FUN.VALUE = logical(1)
+)
+col_names[missing_species]
+
+# those that are not found in the tree (TRUE) are replaced by sister species
+# that are found by manually inspecting the tree
+
+col_names[[1]] <- "Pomarea_iphis"
+col_names[[2]] <- "Ptilinopus_richardsii"
+col_names[[3]] <- "Ptilinopus_regina"
+col_names[[4]] <- "Gallicolumba_jobiensis"
+col_names[[5]] <- "Acrocephalus_atyphus"
+col_names[[7]] <- "Gallicolumba_beccarii"
+col_names[[8]] <- "Gallicolumba_tristigmata"
+col_names[[9]] <- "Macropygia_mackinlayi"
+col_names[[10]] <- "Myiagra_hebetior"
+col_names[[11]] <- "Vini_australis"
+col_names[[12]] <- "Phigys_solitarius"
+col_names[[13]] <- "Charmosyna_rubronotata"
+col_names[[14]] <- "Ducula_pacifica"
+
+tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
+
+island_tree <- ape::keep.tip(phy = bird_tree, tip = tree_index)
+island_tree
+plot(island_tree)
+
+island_phy_dist <- sum(island_tree$edge.length)
+island_phy_dist
+
+norm_island_phy_dist <- island_phy_dist / island_tree$Nnode + 1
+norm_island_phy_dist
+
+norm_island_phy_dist_list$Marquesas <- norm_island_phy_dist
+
+# New Caledonia
+
+data("New_Caledonia")
+New_Caledonia
+
+col_names <- colonist_names(daisie_data = New_Caledonia)
+tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
+
+missing_species <- vapply(
+  tree_index,
+  \(x) ifelse(length(x) == 0, TRUE, FALSE),
+  FUN.VALUE = logical(1)
+)
+col_names[missing_species]
+
+# those that are not found in the tree (TRUE) are replaced by sister species
+# that are found by manually inspecting the tree
+
+col_names[[1]] <- "Gymnomyza_samoensis"
+col_names[[2]] <- "Microeca_flavigaster"
+col_names[[3]] <- "Ducula_pinon"
+col_names[[8]] <- "Ptiloprora_guisei"
+col_names[[9]] <- "Myzomela_sanguinolenta"
+col_names[[10]] <- "Philemon_buceroides"
+col_names[[11]] <- "Corvus_orru"
+col_names[[12]] <- "Cyanoramphus_novaezelandiae"
+col_names[[13]] <- "Erythrura_trichroa"
+col_names[[15]] <- "Zosterops_conspicillatus"
+col_names[[16]] <- "Zosterops_rennellianus"
+col_names[[19]] <- "Gallicolumba_beccarii"
+col_names[[20]] <- "Aplonis_minor"
+col_names[[21]] <- "Artamus_leucorynchus"
+col_names[[22]] <- "Cacatua_sanguinea"
+col_names[[23]] <- "Caloenas_nicobarica"
+col_names[[24]] <- ""
+col_names[[25]] <- ""
+col_names[[26]] <- ""
+col_names[[29]] <- ""
+col_names[[32]] <- ""
+col_names[[35]] <- ""
+col_names[[40]] <- ""
+col_names[[42]] <- ""
+
+# remove duplicate names to prevent under counting phylogenetic distance
+
+col_names[[]] <- ""
+
+tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
+
+island_tree <- ape::keep.tip(phy = bird_tree, tip = tree_index)
+island_tree
+plot(island_tree)
+
+island_phy_dist <- sum(island_tree$edge.length)
+island_phy_dist
+
+norm_island_phy_dist <- island_phy_dist / island_tree$Nnode + 1
+norm_island_phy_dist
+
+norm_island_phy_dist_list$New_Caledonia <- norm_island_phy_dist
