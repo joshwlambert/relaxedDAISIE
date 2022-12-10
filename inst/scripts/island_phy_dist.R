@@ -297,7 +297,7 @@ col_names[[9]] <- "Myzomela_sanguinolenta"
 col_names[[10]] <- "Philemon_buceroides"
 col_names[[11]] <- "Corvus_orru"
 col_names[[12]] <- "Cyanoramphus_novaezelandiae"
-col_names[[13]] <- "Erythrura_trichroa"
+col_names[[13]] <- "Erythrura_tricolor"
 col_names[[15]] <- "Zosterops_conspicillatus"
 col_names[[16]] <- "Zosterops_rennellianus"
 col_names[[19]] <- "Gallicolumba_beccarii"
@@ -305,18 +305,14 @@ col_names[[20]] <- "Aplonis_minor"
 col_names[[21]] <- "Artamus_leucorynchus"
 col_names[[22]] <- "Cacatua_sanguinea"
 col_names[[23]] <- "Caloenas_nicobarica"
-col_names[[24]] <- ""
-col_names[[25]] <- ""
-col_names[[26]] <- ""
-col_names[[29]] <- ""
-col_names[[32]] <- ""
-col_names[[35]] <- ""
-col_names[[40]] <- ""
-col_names[[42]] <- ""
-
-# remove duplicate names to prevent under counting phylogenetic distance
-
-col_names[[]] <- ""
+col_names[[24]] <- "Charmosyna_rubronotata"
+col_names[[25]] <- "Gallicolumba_jobiensis"
+col_names[[26]] <- "Cincloramphus_mathewsi"
+col_names[[29]] <- "Rhipidura_diluta"
+col_names[[32]] <- "Gerygone_mouki"
+col_names[[35]] <- "Ptilinopus_superbus"
+col_names[[40]] <- "Chrysococcyx_lucidus"
+col_names[[42]] <- "Lichmera_indistincta"
 
 tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
 
@@ -331,3 +327,56 @@ norm_island_phy_dist <- island_phy_dist / island_tree$Nnode + 1
 norm_island_phy_dist
 
 norm_island_phy_dist_list$New_Caledonia <- norm_island_phy_dist
+
+# Sao Tome and Principe
+
+data("SaoTome_Principe")
+SaoTome_Principe
+
+col_names <- colonist_names(daisie_data = SaoTome_Principe)
+tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
+
+missing_species <- vapply(
+  tree_index,
+  \(x) ifelse(length(x) == 0, TRUE, FALSE),
+  FUN.VALUE = logical(1)
+)
+col_names[missing_species]
+
+# those that are not found in the tree (TRUE) are replaced by sister species
+# that are found by manually inspecting the tree
+
+col_names[[1]] <- "Nectarinia_verticalis"
+col_names[[2]] <- "Nectarinia_minulla"
+col_names[[4]] <- "Ploceus_bicolor"
+col_names[[5]] <- "Sylvia_borin"
+col_names[[7]] <- "Serinus_citrinelloides"
+col_names[[8]] <- "Ploceus_capensis"
+col_names[[9]] <- "Prinia_bairdii"
+col_names[[10]] <- "Lanius_collaris"
+col_names[[11]] <- "Oriolus_mellianus"
+col_names[[12]] <- "Zosterops_wallacei"
+col_names[[14]] <- "Amaurocichla_bocagei"
+col_names[[15]] <- "Poicephalus_rufiventris"
+col_names[[17]] <- "Terpsiphone_viridis"
+col_names[[18]] <- "Columba_junoniae"
+col_names[[19]] <- "Columba_vitiensis"
+col_names[[20]] <- "Quelea_quelea"
+col_names[[27]] <- "Columba_pulchricollis"
+col_names[[29]] <- "Treron_sieboldii"
+col_names[[33]] <- "Streptopelia_bitorquata"
+col_names[[35]] <- "Nectarinia_chloropygia"
+
+tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
+
+island_tree <- ape::keep.tip(phy = bird_tree, tip = tree_index)
+island_tree
+plot(island_tree)
+
+island_phy_dist <- sum(island_tree$edge.length)
+island_phy_dist
+
+norm_island_phy_dist <- island_phy_dist / island_tree$Nnode + 1
+norm_island_phy_dist
+
+norm_island_phy_dist_list$SaoTome_Principe <- norm_island_phy_dist
