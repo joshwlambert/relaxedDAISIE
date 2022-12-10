@@ -380,3 +380,193 @@ norm_island_phy_dist <- island_phy_dist / island_tree$Nnode + 1
 norm_island_phy_dist
 
 norm_island_phy_dist_list$SaoTome_Principe <- norm_island_phy_dist
+
+# Calculate the BIC weights for each model
+
+# Canaries
+
+# canaries does not have results for relaxed carrying capacity so requires a
+# different set of models
+
+model_list <- list(
+  "cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_k", "rr_laa_dd"
+)
+comoros_best_model <- lapply(
+  model_list,
+  relaxedDAISIE::choose_best_model,
+  data_name = "Comoros"
+)
+galapagos_best_model <- lapply(
+  model_list,
+  relaxedDAISIE::choose_best_model,
+  data_name = "Galapagos"
+)
+marquesas_best_model <- lapply(
+  model_list,
+  relaxedDAISIE::choose_best_model,
+  data_name = "Marquesas"
+)
+new_caledonia_best_model <- lapply(
+  model_list,
+  relaxedDAISIE::choose_best_model,
+  data_name = "New_Caledonia"
+)
+saotome_principe_best_model <- lapply(
+  model_list,
+  relaxedDAISIE::choose_best_model,
+  data_name = "SaoTome_Principe"
+)
+names(comoros_best_model) <- model_list
+names(galapagos_best_model) <- model_list
+names(marquesas_best_model) <- model_list
+names(new_caledonia_best_model) <- model_list
+names(saotome_principe_best_model) <- model_list
+
+
+canaries_model_list <- list(
+  "cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_laa_dd"
+)
+canaries_best_model <- lapply(
+  canaries_model_list,
+  relaxedDAISIE::choose_best_model,
+  data_name = "Canaries"
+)
+names(canaries_best_model) <- canaries_model_list
+
+hawaii_model_list <- list(
+  "cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_k"
+)
+hawaii_best_model <- lapply(
+  hawaii_model_list,
+  relaxedDAISIE::choose_best_model,
+  data_name = "Hawaii"
+)
+names(hawaii_best_model) <- hawaii_model_list
+
+canaries_best_bic <- sapply(canaries_best_model, "[[", "bic")
+comoros_best_bic <- sapply(comoros_best_model, "[[", "bic")
+galapagos_best_bic <- sapply(galapagos_best_model, "[[", "bic")
+hawaii_best_bic <- sapply(hawaii_best_model, "[[", "bic")
+marquesas_best_bic <- sapply(marquesas_best_model, "[[", "bic")
+new_caledonia_best_bic <- sapply(new_caledonia_best_model, "[[", "bic")
+saotome_principe_best_bic <- sapply(saotome_principe_best_model, "[[", "bic")
+
+canaries_bic_tbl <- data.frame(
+  island = "canaries",
+  model = names(canaries_best_bic),
+  bic = canaries_best_bic,
+  delta_bic = canaries_best_bic - min(canaries_best_bic)
+)
+comoros_bic_tbl <- data.frame(
+  island = "comoros",
+  model = names(comoros_best_bic),
+  bic = comoros_best_bic,
+  delta_bic = comoros_best_bic - min(comoros_best_bic)
+)
+galapagos_bic_tbl <- data.frame(
+  island = "galapagos",
+  model = names(galapagos_best_bic),
+  bic = galapagos_best_bic,
+  delta_bic = galapagos_best_bic - min(galapagos_best_bic)
+)
+hawaii_bic_tbl <- data.frame(
+  island = "hawaii",
+  model = names(hawaii_best_bic),
+  bic = hawaii_best_bic,
+  delta_bic = hawaii_best_bic - min(hawaii_best_bic)
+)
+marquesas_bic_tbl <- data.frame(
+  island = "marquesas",
+  model = names(marquesas_best_bic),
+  bic = marquesas_best_bic,
+  delta_bic = marquesas_best_bic - min(marquesas_best_bic)
+)
+new_caledonia_bic_tbl <- data.frame(
+  island = "new_caledonia",
+  model = names(new_caledonia_best_bic),
+  bic = new_caledonia_best_bic,
+  delta_bic = new_caledonia_best_bic - min(new_caledonia_best_bic)
+)
+saotome_principe_bic_tbl <- data.frame(
+  island = "saotome_principe",
+  model = names(saotome_principe_best_bic),
+  bic = saotome_principe_best_bic,
+  delta_bic = saotome_principe_best_bic - min(saotome_principe_best_bic)
+)
+
+# canaries BIC weight
+canaries_bic_tbl$rel_lik <- exp(-0.5 * canaries_bic_tbl$delta_bic)
+canaries_bic_tbl$bic_weight <- canaries_bic_tbl$rel_lik /
+  sum(canaries_bic_tbl$rel_lik)
+
+# comoros BIC weight
+comoros_bic_tbl$rel_lik <- exp(-0.5 * comoros_bic_tbl$delta_bic)
+comoros_bic_tbl$bic_weight <- comoros_bic_tbl$rel_lik /
+  sum(comoros_bic_tbl$rel_lik)
+
+# Galapagos BIC weight
+galapagos_bic_tbl$rel_lik <- exp(-0.5 * galapagos_bic_tbl$delta_bic)
+galapagos_bic_tbl$bic_weight <- galapagos_bic_tbl$rel_lik /
+  sum(galapagos_bic_tbl$rel_lik)
+
+# Hawaii BIC weight
+hawaii_bic_tbl$rel_lik <- exp(-0.5 * hawaii_bic_tbl$delta_bic)
+hawaii_bic_tbl$bic_weight <- hawaii_bic_tbl$rel_lik /
+  sum(hawaii_bic_tbl$rel_lik)
+
+# Marquesas BIC weight
+marquesas_bic_tbl$rel_lik <- exp(-0.5 * marquesas_bic_tbl$delta_bic)
+marquesas_bic_tbl$bic_weight <- marquesas_bic_tbl$rel_lik /
+  sum(marquesas_bic_tbl$rel_lik)
+
+# New Caledonia BIC weight
+new_caledonia_bic_tbl$rel_lik <- exp(-0.5 * new_caledonia_bic_tbl$delta_bic)
+new_caledonia_bic_tbl$bic_weight <- new_caledonia_bic_tbl$rel_lik /
+  sum(new_caledonia_bic_tbl$rel_lik)
+
+# Sao Tome and Principe BIC weight
+saotome_principe_bic_tbl$rel_lik <-
+  exp(-0.5 * saotome_principe_bic_tbl$delta_bic)
+saotome_principe_bic_tbl$bic_weight <- saotome_principe_bic_tbl$rel_lik /
+  sum(saotome_principe_bic_tbl$rel_lik)
+
+bic_tbl <- rbind(canaries_bic_tbl,
+                 comoros_bic_tbl,
+                 galapagos_bic_tbl,
+                 hawaii_bic_tbl,
+                 marquesas_bic_tbl,
+                 new_caledonia_bic_tbl,
+                 saotome_principe_bic_tbl
+)
+rownames(bic_tbl) <- NULL
+
+rr_bic_tbl <- subset(bic_tbl, bic_tbl$model != "cr_dd")
+clado_bic_tbl <- subset(bic_tbl, bic_tbl$model == "rr_lac_dd")
+island_bic_tbl <- aggregate(
+  rr_bic_tbl$bic_weight,
+  by = list(island = rr_bic_tbl$island),
+  FUN = sum
+)
+colnames(island_bic_tbl) <- c("island", "rr_bic_weight")
+
+island_bic_tbl <- cbind(
+  island_bic_tbl,
+  clado_bic_weight = clado_bic_tbl$bic_weight,
+  norm_phy_dist = unlist(norm_island_phy_dist_list)
+)
+
+# calculate kendall's correlation coefficient between sum of rr bic weights and
+# normalised phylogenetic distance
+cor(
+  island_bic_tbl$rr_bic_weight,
+  island_bic_tbl$norm_phy_dist,
+  method = "kendall"
+)
+
+# calculate kendall's correlation coefficient between rr clado bic weights and
+# normalised phylogenetic distance
+cor(
+  island_bic_tbl$clado_bic_weight,
+  island_bic_tbl$norm_phy_dist,
+  method = "kendall"
+)
