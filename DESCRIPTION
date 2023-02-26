@@ -6,6 +6,8 @@ Author: Joshua W. Lambert
 Maintainer: Joshua W. Lambert <j.w.l.lambert@rug.nl>
 Description: All of the scripts required to reproduce the analyses are kept 
     in this package.
+URL: https://github.com/joshwlambert/relaxedDAISIE
+BugReports: https://github.com/joshwlambert/relaxedDAISIE/issues
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
