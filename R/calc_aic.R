@@ -9,7 +9,9 @@
 #' @export
 #'
 #' @examples
-#' stub
+#' data("Comoros")
+#' best_model <- choose_best_model(data_name = "Comoros", model = "cr_dd")
+#' calc_aic(results = best_model, daisie_data = Comoros)
 calc_aic <- function(results, daisie_data) {
   k <- results$df
   aic <- -2 * results$loglik + 2 * k
@@ -25,7 +27,9 @@ calc_aic <- function(results, daisie_data) {
 #' @export
 #'
 #' @examples
-#' stub
+#' data("Comoros")
+#' best_model <- choose_best_model(data_name = "Comoros", model = "cr_dd")
+#' calc_aicc(results = best_model, daisie_data = Comoros)
 calc_aicc <- function(results, daisie_data) {
   k <- results$df
   aic <- -2 * results$loglik + 2 * k

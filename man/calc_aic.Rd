@@ -21,5 +21,7 @@ Calculates Akaike's information criterion for a maximum likelihood output
 of the DAISIE model
 }
 \examples{
-stub
+data("Comoros")
+best_model <- choose_best_model(data_name = "Comoros", model = "cr_dd")
+calc_aic(results = best_model, daisie_data = Comoros)
 }
