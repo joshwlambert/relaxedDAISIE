@@ -39,7 +39,7 @@
                          not_present = Galapagos[[1]]$not_present)
 
   # fix typo
-  Galapagos[[4]]$colonist_name <- "Camarhynchus heliobates"
+  Galapagos[[4]]$colonist_name <- "Camarhynchus heliobates" # nolint
 
   # save island data
   usethis::use_data(Galapagos, overwrite = TRUE)

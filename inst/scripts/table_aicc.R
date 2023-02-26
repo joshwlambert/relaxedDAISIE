@@ -103,5 +103,3 @@ for (i in seq_along(islands)) {
     sanitize.text.function = force
   )
 }
-
-
