@@ -9,7 +9,7 @@ Description: All of the scripts required to reproduce the analyses are kept
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Imports:
     DAISIE,
     DAISIEutils,
@@ -20,7 +20,7 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Remotes:
-    rsetienne/DAISIE@relaxed,
+    rsetienne/DAISIE,
     tece-lab/DAISIEutils@upbound
 Depends: 
     R (>= 3.5.0)
