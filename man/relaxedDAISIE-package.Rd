@@ -8,4 +8,12 @@
 \description{
 All of the scripts required to reproduce the analyses are kept in this package.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/joshwlambert/relaxedDAISIE}
+  \item Report bugs at \url{https://github.com/joshwlambert/relaxedDAISIE/issues}
+}
+
+}
 \keyword{internal}
