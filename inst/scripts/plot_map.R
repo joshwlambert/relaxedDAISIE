@@ -1,6 +1,13 @@
 library(rgdal)
 library(ggplot2)
 library(rnaturalearth)
+library(wesanderson)
+
+pal <- wesanderson::wes_palette(
+  name = "Zissou1",
+  n = 5,
+  type = "discrete"
+)[c(1, 3, 5)]
 
 archipelagos <- readRDS(
   file = system.file(
@@ -51,10 +58,9 @@ map <- ggplot(
       y = LATITUDE,
       group = NULL,
       fill = NULL,
-      size = Total_species,
-      colour = "red"
+      size = 10
     ),
-    alpha = 0.5
+    alpha = 0.5, colour = "#DA70D6"
   ) +
   coord_equal() +
   scale_fill_manual(values = c("black", "white")) +
@@ -74,7 +80,8 @@ map <- ggplot(
         axis.ticks = element_blank(),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
-        legend.background = element_blank()
+        legend.background = element_blank(),
+        legend.position = "none"
   ) +
   ggplot2::annotate(
     geom = "text",
@@ -124,6 +131,50 @@ map <- ggplot(
     y = -1099469.51,
     label = "7",
     size = 3
+  ) +
+  ggrepel::geom_label_repel(
+    data = archipelagos,
+    mapping = ggplot2::aes(
+      x = LONGITUDE,
+      y = LATITUDE
+    ),
+    label = archipelagos$Total_species,
+    fill = pal[1],
+    colour = "white",
+    fontface = "bold",
+    nudge_x = 1000000,
+    nudge_y = 2000000,
+    inherit.aes = FALSE
+  ) +
+  ggrepel::geom_label_repel(
+    data = archipelagos,
+    mapping = ggplot2::aes(
+      x = LONGITUDE,
+      y = LATITUDE
+    ),
+
+    label = archipelagos$Number_colonisations,
+    fill = pal[2],
+    colour = "white",
+    fontface = "bold",
+    nudge_x = 2000000,
+    nudge_y = 2000000,
+    inherit.aes = FALSE
+  ) +
+  ggrepel::geom_label_repel(
+    data = archipelagos,
+    mapping = ggplot2::aes(
+      x = LONGITUDE,
+      y = LATITUDE
+    ),
+
+    label = archipelagos$Cladogenetic_spp,
+    fill = pal[3],
+    colour = "white",
+    fontface = "bold",
+    nudge_x = 3000000,
+    nudge_y = 2000000,
+    inherit.aes = FALSE
   )
 
 
