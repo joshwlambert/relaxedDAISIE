@@ -1,7 +1,6 @@
 library(rgdal)
 library(ggplot2)
 library(rnaturalearth)
-library(wesanderson)
 
 pal <- c("#b9404d", "#33707f", "#e0824b")
 
