@@ -3,11 +3,7 @@ library(ggplot2)
 library(rnaturalearth)
 library(wesanderson)
 
-pal <- wesanderson::wes_palette(
-  name = "Zissou1",
-  n = 5,
-  type = "discrete"
-)[c(1, 3, 5)]
+pal <- c("#b9404d", "#33707f", "#e0824b")
 
 archipelagos <- readRDS(
   file = system.file(
@@ -60,7 +56,7 @@ map <- ggplot(
       fill = NULL,
       size = 10
     ),
-    alpha = 0.5, colour = "#DA70D6"
+    alpha = 0.5, colour = "#245354"
   ) +
   coord_equal() +
   scale_fill_manual(values = c("black", "white")) +
@@ -85,52 +81,52 @@ map <- ggplot(
   ) +
   ggplot2::annotate(
     geom = "text",
-    x = -9033944.7,
-    y = -934750.96,
+    x = -9033944,
+    y = 1000000,
     label = "1*",
-    size = 3
+    size = 5
   ) +
   ggplot2::annotate(
     geom = "text",
     x = -13542344.1,
-    y = -1283957.73,
+    y = -100000,
     label = "2*",
-    size = 3
+    size = 5
   ) +
   ggplot2::annotate(
     geom = "text",
     x = 5061221.4,
     y = -414813.45,
     label = "3",
-    size = 3
+    size = 5
   ) +
   ggplot2::annotate(
     geom = "text",
-    x = -2518597.9,
-    y = 2048108.46,
+    x = -2018597.9,
+    y = 4048108.46,
     label = "4",
-    size = 3
+    size = 5
   ) +
   ggplot2::annotate(
     geom = "text",
     x = -15625005.4,
-    y = 1292515.27,
+    y = 2592515.27,
     label = "5*",
-    size = 3
+    size = 5
   ) +
   ggplot2::annotate(
     geom = "text",
-    x = 16061.1,
-    y = -1208340.23,
+    x = -200000,
+    y = 200000,
     label = "6",
-    size = 3
+    size = 5
   ) +
   ggplot2::annotate(
     geom = "text",
     x = 15950262.5,
     y = -1099469.51,
     label = "7",
-    size = 3
+    size = 5
   ) +
   ggrepel::geom_label_repel(
     data = archipelagos,
@@ -142,8 +138,9 @@ map <- ggplot(
     fill = pal[1],
     colour = "white",
     fontface = "bold",
-    nudge_x = 1000000,
-    nudge_y = 2000000,
+    nudge_x = -3000000,
+    nudge_y = -1000000,
+    segment.color = "black",
     inherit.aes = FALSE
   ) +
   ggrepel::geom_label_repel(
@@ -157,8 +154,9 @@ map <- ggplot(
     fill = pal[2],
     colour = "white",
     fontface = "bold",
-    nudge_x = 2000000,
-    nudge_y = 2000000,
+    nudge_x = -2000000,
+    nudge_y = -1000000,
+    segment.color = "black",
     inherit.aes = FALSE
   ) +
   ggrepel::geom_label_repel(
@@ -167,13 +165,46 @@ map <- ggplot(
       x = LONGITUDE,
       y = LATITUDE
     ),
-
     label = archipelagos$Cladogenetic_spp,
     fill = pal[3],
     colour = "white",
     fontface = "bold",
-    nudge_x = 3000000,
-    nudge_y = 2000000,
+    nudge_x = -1000000,
+    nudge_y = -1000000,
+    segment.color = "black",
+    inherit.aes = FALSE
+  ) +
+  ggplot2::geom_label(
+    data = archipelagos,
+    mapping = ggplot2::aes(
+      x = -16250000,
+      y = -5000000
+    ),
+    label = "Total Species",
+    fill = pal[1],
+    colour = "white",
+    inherit.aes = FALSE
+  ) +
+  ggplot2::geom_label(
+    data = archipelagos,
+    mapping = ggplot2::aes(
+      x = -15000000,
+      y = -6000000
+    ),
+    label = "Number of Colonisations",
+    fill = pal[2],
+    colour = "white",
+    inherit.aes = FALSE
+  ) +
+  ggplot2::geom_label(
+    data = archipelagos,
+    mapping = ggplot2::aes(
+      x = -14000000,
+      y = -7000000
+    ),
+    label = "Number of Cladogenetic Species",
+    fill = pal[3],
+    colour = "white",
     inherit.aes = FALSE
   )
 
