@@ -15,7 +15,7 @@ ggplot2::ggplot(data = results_tbl) +
   )
 
 # explode the points vertically to see the groupings
-ggplot2::ggplot(data = model_fit_tbl) +
+ggplot2::ggplot(data = results_tbl) +
   ggplot2::geom_point(
     mapping = ggplot2::aes(
       x = loglik,
@@ -30,7 +30,7 @@ ggplot2::ggplot(data = model_fit_tbl) +
 #plot the individual islands
 island <- "Comoros"
 
-ggplot2::ggplot(data = dplyr::filter(model_fit_tbl, island == island)) +
+ggplot2::ggplot(data = dplyr::filter(results_tbl, island == island)) +
   ggplot2::geom_point(
     mapping = ggplot2::aes(
       x = loglik,
