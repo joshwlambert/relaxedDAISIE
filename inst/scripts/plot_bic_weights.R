@@ -196,6 +196,18 @@ ggplot2::ggplot(data = bic_tbl) +
   )
 )
 
+# add rows to create legend subheading
+bic_tbl <- rbind(
+  bic_tbl,
+  data.frame(
+    island = unique(bic_tbl$island),
+    model = "Relaxed-rate",
+    bic = 0,
+    delta_bic = 0,
+    rel_lik = 0,
+    bic_weight = 1e-10
+  )
+)
 
 bic_weights <- ggplot2::ggplot(data = bic_tbl) +
   ggplot2::geom_bar(
@@ -209,16 +221,17 @@ bic_weights <- ggplot2::ggplot(data = bic_tbl) +
   ggplot2::scale_fill_manual(
     name = "Model",
     breaks = c(
-      "cr_dd", "rr_k", "rr_laa_dd", "rr_lac_dd", "rr_mu_dd"
+      "cr_dd", "Relaxed-rate", "rr_k", "rr_laa_dd", "rr_lac_dd", "rr_mu_dd"
     ),
     labels = c(
-      "HR",
+      "Homogeneous-rate",
+      "**Relaxed-rate**",
       "Carrying Capacity",
       "Anagenesis",
       "Cladogenesis",
       "Extinction"
     ),
-    values = c("#8DD3C7", "#BEBADA", "#FB8072", "#80B1D3", "#FDB462")
+    values = colour <- c("#8DD3C7", "white", "#BEBADA", "#FB8072", "#80B1D3", "#FDB462")
   ) +
   ggplot2::scale_y_continuous(name = "BIC Weight") +
   ggplot2::scale_x_discrete(
@@ -233,7 +246,8 @@ bic_weights <- ggplot2::ggplot(data = bic_tbl) +
       "saotome_principe" = "São Tomé & Príncipe"
     )
   ) +
-  ggplot2::theme_classic()
+  ggplot2::theme_classic() +
+  ggplot2::theme(legend.text = ggtext::element_markdown())
 
 ggplot2::ggsave(
   plot = bic_weights,
