@@ -182,7 +182,7 @@ bic_weights <- ggplot2::ggplot(data = bic_tbl) +
   ggplot2::scale_fill_manual(
     name = "Model",
     breaks = c(
-      "cr_dd", "Relaxed-rate", "rr_k", "rr_laa_dd", "rr_lac_dd", "rr_mu_dd",
+      "cr_dd", "Relaxed-rate", "rr_lac_dd", "rr_mu_dd", "rr_k", "rr_laa_dd",
       "Two-type", "cr_dd_2type_lac", "cr_dd_2type_mu", "cr_dd_2type_k",
       "cr_dd_2type_lac_mu", "cr_dd_2type_lac_k", "cr_dd_2type_mu_k",
       "cr_dd_2type_lac_mu_k"
@@ -190,10 +190,10 @@ bic_weights <- ggplot2::ggplot(data = bic_tbl) +
     labels = c(
       "Homogeneous-rate",
       "**Relaxed-rate**",
-      "Carrying Capacity",
-      "Anagenesis",
       "Cladogenesis",
       "Extinction",
+      "Carrying Capacity",
+      "Anagenesis",
       "**Two-type**",
       "HR 2type Cladogenesis",
       "HR 2type Extinction",
@@ -203,7 +203,7 @@ bic_weights <- ggplot2::ggplot(data = bic_tbl) +
       "HR 2type Extinction Carrying Capacity",
       "HR 2type Cladogenesis Extinction Carrying Capacity"
     ),
-    values = c("#8DD3C7", "white", "#BEBADA", "#FB8072", "#80B1D3", "#FDB462",
+    values = c("#8DD3C7", "white", "#80B1D3","#FDB462", "#BEBADA", "#FB8072",
                "white", "#3876a2", "#df7702", "#655ca7", "#90b500", "#8F00FF",
                "#C12267", "#006400")
   ) +
