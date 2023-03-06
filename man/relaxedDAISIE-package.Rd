@@ -4,9 +4,9 @@
 \name{relaxedDAISIE-package}
 \alias{relaxedDAISIE}
 \alias{relaxedDAISIE-package}
-\title{relaxedDAISIE: Package housing all the code to reproduce relaxed-rate DAISIE paper}
+\title{relaxedDAISIE: Reproduce Relaxed-rate DAISIE Paper}
 \description{
-All of the scripts required to reproduce the analyses are kept in this package.
+All of the scripts required to reproduce the analyses and plots of the relaxed-rate DAISIE paper are kept in this package.
 }
 \seealso{
 Useful links:
