@@ -1,7 +1,7 @@
 Package: relaxedDAISIE
 Type: Package
 Title: Reproduce Relaxed-rate DAISIE Paper
-Version: 0.1.0
+Version: 0.1.0.9000
 Author: Joshua W. Lambert
 Maintainer: Joshua W. Lambert <j.w.l.lambert@rug.nl>
 Description: All of the scripts required to reproduce the analyses and plots of the relaxed-rate DAISIE paper are kept 
