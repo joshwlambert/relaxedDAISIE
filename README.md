@@ -4,6 +4,8 @@
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/joshwlambert/relaxedDAISIE/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/joshwlambert/relaxedDAISIE/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/joshwlambert/relaxedDAISIE/branch/main/graph/badge.svg)](https://app.codecov.io/gh/joshwlambert/relaxedDAISIE?branch=main)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 <!-- badges: end -->
 
 The goal of relaxedDAISIE is to reproduce the analysis and plots of Lambert et
