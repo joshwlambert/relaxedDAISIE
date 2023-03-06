@@ -1,0 +1,19 @@
+{
+    "creators": [
+      {
+        "orcid": "0000-0001-5218-3046",
+        "affiliation": "University of Groningen",
+        "name": "Lambert, Joshua W."
+      }
+    ],
+
+    "license": {
+      "id": "GPL-3.0-only"
+    },
+
+    "description": "<p>DAll of the scripts required to reproduce the analyses and plots of the relaxed-rate DAISIE paper are kept in this package.</p>",
+    "language": "eng",
+    "title": "relaxedDAISIE: Reproduce Relaxed-rate DAISIE Paper",
+
+    "access_right": "open"
+}
