@@ -203,7 +203,7 @@ bic_weights <- ggplot2::ggplot(data = bic_tbl) +
       "HR 2type Extinction Carrying Capacity",
       "HR 2type Cladogenesis Extinction Carrying Capacity"
     ),
-    values = c("#8DD3C7", "white", "#80B1D3","#FDB462", "#BEBADA", "#FB8072",
+    values = c("#8DD3C7", "white", "#80B1D3", "#FDB462", "#BEBADA", "#FB8072",
                "white", "#3876a2", "#df7702", "#655ca7", "#90b500", "#8F00FF",
                "#C12267", "#006400")
   ) +

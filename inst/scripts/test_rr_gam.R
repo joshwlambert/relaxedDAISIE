@@ -15,7 +15,9 @@ results_tbl <- results_tbl[which(results_tbl$model == "rr_gam_dd"), ]
 # determine whether the likelihood calculation is consistent for the same
 # starting parameters, using MLE parameters from the results
 
-pars <- unlist(results_tbl[1, c("lambda_c", "mu", "K", "gamma", "lambda_a", "sd")])
+pars <- unlist(
+  results_tbl[1, c("lambda_c", "mu", "K", "gamma", "lambda_a", "sd")]
+)
 
 lik <- DAISIE:::DAISIE_loglik_all(
   pars1 = pars[1:5],
@@ -56,9 +58,3 @@ lik_res <- DAISIE::DAISIE_ML(
     par_upper_bound = 1
   )
 )
-
-
-
-
-
-

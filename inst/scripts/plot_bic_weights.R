@@ -231,7 +231,9 @@ bic_weights <- ggplot2::ggplot(data = bic_tbl) +
       "Carrying Capacity",
       "Anagenesis"
     ),
-    values = colour <- c("#8DD3C7", "white", "#80B1D3", "#FDB462", "#BEBADA", "#FB8072")
+    values = colour <- c(
+      "#8DD3C7", "white", "#80B1D3", "#FDB462", "#BEBADA", "#FB8072"
+    )
   ) +
   ggplot2::scale_y_continuous(name = "BIC Weight") +
   ggplot2::scale_x_discrete(
