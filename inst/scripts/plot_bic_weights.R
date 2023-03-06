@@ -221,17 +221,17 @@ bic_weights <- ggplot2::ggplot(data = bic_tbl) +
   ggplot2::scale_fill_manual(
     name = "Model",
     breaks = c(
-      "cr_dd", "Relaxed-rate", "rr_k", "rr_laa_dd", "rr_lac_dd", "rr_mu_dd"
+      "cr_dd", "Relaxed-rate", "rr_lac_dd", "rr_mu_dd", "rr_k", "rr_laa_dd"
     ),
     labels = c(
       "Homogeneous-rate",
       "**Relaxed-rate**",
-      "Carrying Capacity",
-      "Anagenesis",
       "Cladogenesis",
-      "Extinction"
+      "Extinction",
+      "Carrying Capacity",
+      "Anagenesis"
     ),
-    values = colour <- c("#8DD3C7", "white", "#BEBADA", "#FB8072", "#80B1D3", "#FDB462")
+    values = colour <- c("#8DD3C7", "white", "#80B1D3", "#FDB462", "#BEBADA", "#FB8072")
   ) +
   ggplot2::scale_y_continuous(name = "BIC Weight") +
   ggplot2::scale_x_discrete(
