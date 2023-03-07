@@ -2,8 +2,13 @@ Package: relaxedDAISIE
 Type: Package
 Title: Reproduce Relaxed-rate DAISIE Paper
 Version: 0.1.0.9000
-Author: Joshua W. Lambert
-Maintainer: Joshua W. Lambert <j.w.l.lambert@rug.nl>
+Authors@R: person(
+               given = "Joshua W.", 
+               family = "Lambert", 
+               role = c("cre", "aut"), 
+               email = "j.w.l.lambert@rug.nl",
+               comment = c(ORCID = "https://orcid.org/0000-0001-5218-3046")
+           )
 Description: All of the scripts required to reproduce the analyses and plots of the relaxed-rate DAISIE paper are kept 
     in this package.
 URL: https://github.com/joshwlambert/relaxedDAISIE
