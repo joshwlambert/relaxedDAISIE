@@ -85,6 +85,9 @@ calc_rr_cr_diff <- function(island_clade,
   # for the gamma distribution
   loglik_integrated <- c()
   for (i in seq_along(sd)) {
+
+    message("Computing DAISIE integrated likelihood ", i, " of ", length(sd))
+
     cs_version <- DAISIE::create_CS_version(
       model = 2,
       relaxed_par = relaxed_par,

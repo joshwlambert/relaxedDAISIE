@@ -100,7 +100,7 @@ clado_lineage_plot <- ggplot2::ggplot(data = clado_lineage) +
     stroke = 1
   ) +
   ggplot2::scale_y_continuous(name = "Delta log likelihood") +
-  ggplot2::scale_x_continuous(name = "Prior Distribution Standard deviation") +
+  ggplot2::scale_x_continuous(name = "Distribution Standard deviation") +
   ggplot2::ggtitle("Relaxed Cladogenesis (non-endemic lineage)") +
   ggplot2::theme_classic() +
   ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
@@ -116,7 +116,7 @@ ext_lineage_plot <- ggplot2::ggplot(data = ext_lineage) +
     stroke = 1
   ) +
   ggplot2::scale_y_continuous(name = "Delta log likelihood") +
-  ggplot2::scale_x_continuous(name = "Prior Distribution Standard deviation") +
+  ggplot2::scale_x_continuous(name = "Distribution Standard deviation") +
   ggplot2::ggtitle("Relaxed Extinction (non-endemic lineage)") +
   ggplot2::theme_classic() +
   ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
@@ -132,7 +132,7 @@ k_lineage_plot <- ggplot2::ggplot(data = k_lineage) +
     stroke = 1
   ) +
   ggplot2::scale_y_continuous(name = "Delta log likelihood") +
-  ggplot2::scale_x_continuous(name = "Prior Distribution Standard deviation") +
+  ggplot2::scale_x_continuous(name = "Distribution Standard deviation") +
   ggplot2::ggtitle("Relaxed Carrying capacity (non-endemic lineage)") +
   ggplot2::theme_classic() +
   ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
@@ -148,7 +148,7 @@ immig_lineage_plot <- ggplot2::ggplot(data = immig_lineage) +
     stroke = 1
   ) +
   ggplot2::scale_y_continuous(name = "Delta log likelihood") +
-  ggplot2::scale_x_continuous(name = "Prior Distribution Standard deviation") +
+  ggplot2::scale_x_continuous(name = "Distribution Standard deviation") +
   ggplot2::ggtitle("Relaxed Colonisation (non-endemic lineage)") +
   ggplot2::theme_classic() +
   ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
@@ -164,7 +164,7 @@ ana_lineage_plot <- ggplot2::ggplot(data = ana_lineage) +
     stroke = 1
   ) +
   ggplot2::scale_y_continuous(name = "Delta log likelihood") +
-  ggplot2::scale_x_continuous(name = "Prior Distribution Standard deviation") +
+  ggplot2::scale_x_continuous(name = "Distribution Standard deviation") +
   ggplot2::ggtitle("Relaxed Anagenesis (non-endemic lineage)") +
   ggplot2::theme_classic() +
   ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
@@ -180,7 +180,7 @@ clado_radiation_plot <- ggplot2::ggplot(data = clado_radiation) +
     stroke = 1
   ) +
   ggplot2::scale_y_continuous(name = "Delta log likelihood") +
-  ggplot2::scale_x_continuous(name = "Prior Distribution Standard deviation") +
+  ggplot2::scale_x_continuous(name = "Distribution Standard deviation") +
   ggplot2::ggtitle("Relaxed Cladogenesis (endemic radiation)") +
   ggplot2::theme_classic() +
   ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
@@ -196,7 +196,7 @@ ext_radiation_plot <- ggplot2::ggplot(data = ext_radiation) +
     stroke = 1
   ) +
   ggplot2::scale_y_continuous(name = "Delta log likelihood") +
-  ggplot2::scale_x_continuous(name = "Prior Distribution Standard deviation") +
+  ggplot2::scale_x_continuous(name = "Distribution Standard deviation") +
   ggplot2::ggtitle("Relaxed Extinction (endemic radiation)") +
   ggplot2::theme_classic() +
   ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
@@ -212,7 +212,7 @@ k_radiation_plot <- ggplot2::ggplot(data = k_radiation) +
     stroke = 1
   ) +
   ggplot2::scale_y_continuous(name = "Delta log likelihood") +
-  ggplot2::scale_x_continuous(name = "Prior Distribution Standard deviation") +
+  ggplot2::scale_x_continuous(name = "Distribution Standard deviation") +
   ggplot2::ggtitle("Relaxed Carrying Capacity (endemic radiation)") +
   ggplot2::theme_classic() +
   ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
@@ -228,7 +228,7 @@ immig_radiation_plot <- ggplot2::ggplot(data = immig_radiation) +
     stroke = 1
   ) +
   ggplot2::scale_y_continuous(name = "Delta log likelihood") +
-  ggplot2::scale_x_continuous(name = "Prior Distribution Standard deviation") +
+  ggplot2::scale_x_continuous(name = "Distribution Standard deviation") +
   ggplot2::ggtitle("Relaxed Colonisation (endemic radiation)") +
   ggplot2::theme_classic() +
   ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
@@ -244,7 +244,7 @@ ana_radiation_plot <- ggplot2::ggplot(data = ana_radiation) +
     stroke = 1
   ) +
   ggplot2::scale_y_continuous(name = "Delta log likelihood") +
-  ggplot2::scale_x_continuous(name = "Prior Distribution Standard deviation") +
+  ggplot2::scale_x_continuous(name = "Distribution Standard deviation") +
   ggplot2::ggtitle("Relaxed Anagenesis (endemic radiation)") +
   ggplot2::theme_classic() +
   ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
@@ -265,5 +265,5 @@ ggplot2::ggsave(
   width = 200,
   height = 250,
   units = "mm",
-  dpi = 600
+  dpi = 300
 )
