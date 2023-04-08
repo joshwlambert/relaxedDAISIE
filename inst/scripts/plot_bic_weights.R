@@ -9,6 +9,11 @@
 model_list <- list(
   "cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_k", "rr_laa_dd"
 )
+canaries_best_model <- lapply(
+  model_list,
+  relaxedDAISIE::choose_best_model,
+  data_name = "Canaries"
+)
 comoros_best_model <- lapply(
   model_list,
   relaxedDAISIE::choose_best_model,
@@ -18,6 +23,11 @@ galapagos_best_model <- lapply(
   model_list,
   relaxedDAISIE::choose_best_model,
   data_name = "Galapagos"
+)
+hawaii_best_model <- lapply(
+  model_list,
+  relaxedDAISIE::choose_best_model,
+  data_name = "Hawaii"
 )
 marquesas_best_model <- lapply(
   model_list,
@@ -39,26 +49,7 @@ names(galapagos_best_model) <- model_list
 names(marquesas_best_model) <- model_list
 names(new_caledonia_best_model) <- model_list
 names(saotome_principe_best_model) <- model_list
-
-
-canaries_model_list <- list(
-  "cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_laa_dd"
-)
-canaries_best_model <- lapply(
-  canaries_model_list,
-  relaxedDAISIE::choose_best_model,
-  data_name = "Canaries"
-)
 names(canaries_best_model) <- canaries_model_list
-
-hawaii_model_list <- list(
-  "cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_k"
-)
-hawaii_best_model <- lapply(
-  hawaii_model_list,
-  relaxedDAISIE::choose_best_model,
-  data_name = "Hawaii"
-)
 names(hawaii_best_model) <- hawaii_model_list
 
 canaries_best_bic <- sapply(canaries_best_model, "[[", "bic")
