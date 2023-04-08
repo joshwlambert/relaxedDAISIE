@@ -15,12 +15,18 @@ galapagos_best_model <- lapply(
   relaxedDAISIE::choose_best_model,
   data_name = "Galapagos"
 )
+hawaii_best_model <- lapply(
+  model_list,
+  relaxedDAISIE::choose_best_model,
+  data_name = "Hawaii"
+)
 marquesas_best_model <- lapply(
   model_list,
   relaxedDAISIE::choose_best_model,
   data_name = "Marquesas"
 )
 names(galapagos_best_model) <- model_list
+names(hawaii_best_model) <- model_list
 names(marquesas_best_model) <- model_list
 
 model_list_2type <- list(
@@ -49,15 +55,6 @@ names(galapagos_best_2type_model) <- model_list_2type
 names(marquesas_best_2type_model) <- model_list_2type
 names(hawaii_best_2type_model) <- model_list_2type
 
-hawaii_model_list <- list(
-  "cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_k"
-)
-hawaii_best_model <- lapply(
-  hawaii_model_list,
-  relaxedDAISIE::choose_best_model,
-  data_name = "Hawaii"
-)
-names(hawaii_best_model) <- hawaii_model_list
 
 galapagos_best_bic <- sapply(galapagos_best_model, "[[", "bic")
 galapagos_best_2type_bic <- sapply(galapagos_best_2type_model, "[[", "bic")

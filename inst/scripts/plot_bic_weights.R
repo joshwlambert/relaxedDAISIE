@@ -44,13 +44,13 @@ saotome_principe_best_model <- lapply(
   relaxedDAISIE::choose_best_model,
   data_name = "SaoTome_Principe"
 )
+names(canaries_best_model) <- model_list
 names(comoros_best_model) <- model_list
 names(galapagos_best_model) <- model_list
+names(hawaii_best_model) <- model_list
 names(marquesas_best_model) <- model_list
 names(new_caledonia_best_model) <- model_list
 names(saotome_principe_best_model) <- model_list
-names(canaries_best_model) <- canaries_model_list
-names(hawaii_best_model) <- hawaii_model_list
 
 canaries_best_bic <- sapply(canaries_best_model, "[[", "bic")
 comoros_best_bic <- sapply(comoros_best_model, "[[", "bic")
