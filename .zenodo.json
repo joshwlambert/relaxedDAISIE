@@ -11,7 +11,7 @@
       "id": "GPL-3.0-only"
     },
 
-    "description": "<p>DAll of the scripts required to reproduce the analyses and plots of the relaxed-rate DAISIE paper are kept in this package.</p>",
+    "description": "<p>All of the scripts required to reproduce the analyses and plots of the relaxed-rate DAISIE paper are kept in this package.</p>",
     "language": "eng",
     "title": "relaxedDAISIE: Reproduce Relaxed-rate DAISIE Paper",
 
