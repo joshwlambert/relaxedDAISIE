@@ -1,7 +1,7 @@
 Package: relaxedDAISIE
 Type: Package
 Title: Reproduce Relaxed-rate DAISIE Paper
-Version: 0.1.0.9000
+Version: 0.2.0
 Authors@R: person(
                given = "Joshua W.", 
                family = "Lambert", 
