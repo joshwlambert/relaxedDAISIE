@@ -24,25 +24,50 @@ for (i in seq_along(data_name)) {
 
   for (j in seq_along(model)) {
     # get which files for the model
-    num_files <- length(grep(pattern = paste(model[j], "[0-9]", sep = "_"), x = files))
+    num_files <- length(grep(
+      pattern = paste(model[j], "[0-9]", sep = "_"),
+      x = files
+    ))
 
-    df <- data.frame(Archipelago = data_name[i], Model = model[j], Success = num_files)
+    df <- data.frame(
+      Archipelago = data_name[i],
+      Model = model[j],
+      Success = num_files
+    )
     model_success <- rbind(model_success, df)
   }
 }
 
 # format table
 
-model_success$Archipelago <- gsub(pattern = "_", replacement = " ", x = model_success$Archipelago)
+model_success$Archipelago <- gsub(
+  pattern = "_", replacement = " ", x = model_success$Archipelago
+)
 model_success$Model <- toupper(model_success$Model)
-model_success$Model <- gsub(pattern = "CR", replacement = "HR", x = model_success$Model)
-model_success$Model <- gsub(pattern = "_", replacement = " ", x = model_success$Model)
-model_success$Model <- gsub(pattern = "LAC", replacement = "$\\\\lambda^c$", x = model_success$Model)
-model_success$Model <- gsub(pattern = "MU", replacement = "$\\\\mu$", x = model_success$Model)
-model_success$Model <- gsub(pattern = "LAA", replacement = "$\\\\lambda^a$", x = model_success$Model)
-model_success$Model <- gsub(pattern = "RR K", replacement = "RR $K'$", x = model_success$Model)
-model_success$Model <- gsub(pattern = "GAM", replacement = "$\\\\gamma$", x = model_success$Model)
-model_success$Model <- gsub(pattern = "RR ", replacement = "RR", x = model_success$Model)
+model_success$Model <- gsub(
+  pattern = "CR", replacement = "HR", x = model_success$Model
+)
+model_success$Model <- gsub(
+  pattern = "_", replacement = " ", x = model_success$Model
+)
+model_success$Model <- gsub(
+  pattern = "LAC", replacement = "$\\\\lambda^c$", x = model_success$Model
+)
+model_success$Model <- gsub(
+  pattern = "MU", replacement = "$\\\\mu$", x = model_success$Model
+)
+model_success$Model <- gsub(
+  pattern = "LAA", replacement = "$\\\\lambda^a$", x = model_success$Model
+)
+model_success$Model <- gsub(
+  pattern = "RR K", replacement = "RR $K'$", x = model_success$Model
+)
+model_success$Model <- gsub(
+  pattern = "GAM", replacement = "$\\\\gamma$", x = model_success$Model
+)
+model_success$Model <- gsub(
+  pattern = "RR ", replacement = "RR", x = model_success$Model
+)
 
 model_success$Success <- paste0(model_success$Success, "/10")
 
@@ -84,5 +109,3 @@ print(
   sanitize.colnames.function = identity,
   sanitize.text.function = force
 )
-
-
