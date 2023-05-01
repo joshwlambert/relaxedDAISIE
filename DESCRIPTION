@@ -18,7 +18,7 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
 Imports:
-    DAISIE,
+    DAISIE (>= 4.4.0),
     DAISIEutils,
     xtable,
     ggplot2,
@@ -33,7 +33,6 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Remotes:
-    rsetienne/DAISIE@v4.3.1,
-    tece-lab/DAISIEutils@v1.5.0
+    tece-lab/DAISIEutils@rm_daisie_dep
 Depends: 
-    R (>= 3.5.0)
+    R (>= 4.2.0)
