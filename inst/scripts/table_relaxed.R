@@ -68,41 +68,43 @@ tab_list <- lapply(tab_list, \(x) {
   x
 })
 
-for (i in seq_along(islands)) {
-  print(
-    xtable::xtable(
-      tab_list[[i]],
-      digits = c(
-        3, # rownames
-        3, # archipelago name
-        3, # model name
-        4, # cladogenesis
-        4, # extincton
-        5, # carrying capacity
-        3, # colonisation
-        4, # anagenesis
-        6, # sd
-        6, # loglik
-        6  # BIC
-      ),
-      display = c("s", "s", rep("g", 9)),
-      align = "ccccccccccc",
-      caption = paste0(
-        "Maximum likelihood results for the ", islands[i], " archipelago for ",
-        "a selection of homogeneous-rate (HR) and relaxed-rate (RR) models. ",
-        "Parameters estimated are: cladogenesis ($\\lambda^c$), extinction ",
-        "($\\mu$), carrying capacity (\\textit{K}), colonisation ($\\gamma$), ",
-        "anagenesis ($\\lambda^a$), standard deviation of relaxed parameter ",
-        "($\\sigma$), as well as the models maximised log likelihood (loglik) ",
-        "and Bayesian Information Criterion (BIC)."),
-      label = paste0("tab:", islands[i], "_ml")
+tab <- do.call(rbind, tab_list)
+rownames(tab) <- NULL
+
+print(
+  xtable::xtable(
+    tab,
+    digits = c(
+      3, # rownames
+      3, # archipelago name
+      3, # model name
+      4, # cladogenesis
+      4, # extincton
+      5, # carrying capacity
+      3, # colonisation
+      4, # anagenesis
+      6, # sd
+      6, # loglik
+      6  # BIC
     ),
-    size = "small",
-    math.style.exponents = TRUE,
-    NA.string = "NA",
-    include.rownames = FALSE,
-    hline.after = c(0, 0),
-    sanitize.colnames.function = identity,
-    sanitize.text.function = force
-  )
-}
+    display = c("s", "s", rep("g", 9)),
+    align = "ccccccccccc",
+    caption = paste0(
+      "Maximum likelihood results for the archipelagos for ",
+      "a selection of homogeneous-rate (HR) and relaxed-rate (RR) models. ",
+      "Parameters estimated are: cladogenesis ($\\lambda^c$), extinction ",
+      "($\\mu$), carrying capacity (\\textit{K}), colonisation ($\\gamma$), ",
+      "anagenesis ($\\lambda^a$), standard deviation of relaxed parameter ",
+      "($\\sigma$), as well as the models maximised log likelihood (loglik) ",
+      "and Bayesian Information Criterion (BIC)."),
+    label = paste0("tab:archipelagos_ml")
+  ),
+  size = "small",
+  math.style.exponents = TRUE,
+  NA.string = "NA",
+  include.rownames = FALSE,
+  hline.after = c(0, seq(0, 35, 5)),
+  sanitize.colnames.function = identity,
+  sanitize.text.function = force
+)
+
