@@ -1,5 +1,13 @@
 # script to produce tables that can be copied and modified in latex
 
+data("Canaries")
+data("Comoros")
+data("Galapagos")
+data("Hawaii")
+data("Marquesas")
+data("New_Caledonia")
+data("SaoTome_Principe")
+
 tab_list <- list()
 models <- c("cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_k", "rr_laa_dd")
 islands <- c("Canaries", "Comoros", "Galapagos", "Hawaii", "Marquesas",
@@ -9,11 +17,21 @@ for (i in seq_along(islands)) {
   tab <- data.frame()
   for (model in models) {
     best_model <- choose_best_model(data_name = islands[i], model = model)
+    best_model <- cbind(best_model, aic = NaN, aicc = NaN)
+    best_model[["aic"]] <- calc_aic(
+      results = best_model,
+      daisie_data = eval(parse(text = islands[i]))
+    )
+    best_model[["aicc"]] <- calc_aicc(
+      results = best_model,
+      daisie_data = eval(parse(text = islands[i]))
+    )
     if (model == "cr_dd") {
       best_model <- cbind(best_model, sd = NA_real_)
       best_model <-
         best_model[, c(
-          "lambda_c", "mu", "K", "gamma", "lambda_a", "sd", "loglik", "bic"
+          "lambda_c", "mu", "K", "gamma", "lambda_a", "sd", "loglik",
+          "bic", "aic", "aicc"
         )]
     } else {
       rm_index <- which(colnames(best_model) %in% c("df", "conv"))
@@ -41,7 +59,7 @@ tab_list <- lapply(tab_list, \(x) {
 
 tab_list <- lapply(tab_list, \(x) {
   colnames(x) <- c("Model", "$\\lambda^c$", "$\\mu$", "$K'$", "$\\gamma$",
-                   "$\\lambda^a$", "$\\sigma$", "loglik", "BIC")
+                   "$\\lambda^a$", "$\\sigma$", "loglik", "BIC", "AIC", "AICc")
   x
 })
 
@@ -85,10 +103,12 @@ print(
       4, # anagenesis
       6, # sd
       6, # loglik
-      6  # BIC
+      6, # BIC
+      6, # AIC
+      6  #AICc
     ),
-    display = c("s", "s", rep("g", 9)),
-    align = "ccccccccccc",
+    display = c("s", "s", rep("g", 11)),
+    align = "ccccccccccccc",
     caption = paste0(
       "Maximum likelihood results for the archipelagos for ",
       "a selection of homogeneous-rate (HR) and relaxed-rate (RR) models. ",
@@ -96,10 +116,12 @@ print(
       "($\\mu$), carrying capacity (\\textit{K}), colonisation ($\\gamma$), ",
       "anagenesis ($\\lambda^a$), standard deviation of relaxed parameter ",
       "($\\sigma$), as well as the models maximised log likelihood (loglik) ",
-      "and Bayesian Information Criterion (BIC)."),
+      "and Bayesian Information Criterion (BIC). The homogeneous-rate model has
+      five free parameters (degrees of freedom), while the relaxed-rate models
+      have six free parameters."),
     label = paste0("tab:archipelagos_ml")
   ),
-  size = "small",
+  size = "fontnotesize",
   math.style.exponents = TRUE,
   NA.string = "NA",
   include.rownames = FALSE,
