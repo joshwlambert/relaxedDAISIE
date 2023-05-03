@@ -33,7 +33,15 @@ calc_aic <- function(results, daisie_data) {
 calc_aicc <- function(results, daisie_data) {
   k <- results$df
   aic <- -2 * results$loglik + 2 * k
-  m <- daisie_data[[1]]$not_present + length(daisie_data) - 1
+  if (any(grepl(pattern = "type", x = names(daisie_data[[1]])))) {
+    not_present_idx <- grep(
+      pattern = "not_present",
+      x = names(daisie_data[[1]])
+    )
+    m <- sum(unlist(daisie_data[[1]])[not_present_idx])
+  } else {
+    m <- daisie_data[[1]]$not_present + length(daisie_data) - 1
+  }
   aicc <- aic + 2 * k * (k + 1) / m - k - 1
   aicc
 }
