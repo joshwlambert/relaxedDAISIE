@@ -435,115 +435,320 @@ names(marquesas_best_model) <- model_list
 names(new_caledonia_best_model) <- model_list
 names(saotome_principe_best_model) <- model_list
 
-canaries_best_bic <- sapply(canaries_best_model, "[[", "bic")
-comoros_best_bic <- sapply(comoros_best_model, "[[", "bic")
-galapagos_best_bic <- sapply(galapagos_best_model, "[[", "bic")
-hawaii_best_bic <- sapply(hawaii_best_model, "[[", "bic")
-marquesas_best_bic <- sapply(marquesas_best_model, "[[", "bic")
-new_caledonia_best_bic <- sapply(new_caledonia_best_model, "[[", "bic")
-saotome_principe_best_bic <- sapply(saotome_principe_best_model, "[[", "bic")
+canaries_best_model <- lapply(
+  canaries_best_model, \(x) {
+    aic <- calc_aic(
+      results = x,
+      daisie_data = eval(parse(text = "Canaries"))
+    )
+    aicc <- calc_aicc(
+      results = x,
+      daisie_data = eval(parse(text = "Canaries"))
+    )
+    canaries_best_model <- cbind(x, aic = aic, aicc = aicc)
+    return(canaries_best_model)
+  }
+)
 
-canaries_bic_tbl <- data.frame(
+comoros_best_model <- lapply(
+  comoros_best_model, \(x) {
+    aic <- calc_aic(
+      results = x,
+      daisie_data = eval(parse(text = "Comoros"))
+    )
+    aicc <- calc_aicc(
+      results = x,
+      daisie_data = eval(parse(text = "Comoros"))
+    )
+    comoros_best_model <- cbind(x, aic = aic, aicc = aicc)
+    return(comoros_best_model)
+  }
+)
+
+galapagos_best_model <- lapply(
+  galapagos_best_model, \(x) {
+    aic <- calc_aic(
+      results = x,
+      daisie_data = eval(parse(text = "Galapagos"))
+    )
+    aicc <- calc_aicc(
+      results = x,
+      daisie_data = eval(parse(text = "Galapagos"))
+    )
+    galapagos_best_model <- cbind(x, aic = aic, aicc = aicc)
+    return(galapagos_best_model)
+  }
+)
+
+hawaii_best_model <- lapply(
+  hawaii_best_model, \(x) {
+    aic <- calc_aic(
+      results = x,
+      daisie_data = eval(parse(text = "Hawaii"))
+    )
+    aicc <- calc_aicc(
+      results = x,
+      daisie_data = eval(parse(text = "Hawaii"))
+    )
+    hawaii_best_model <- cbind(x, aic = aic, aicc = aicc)
+    return(hawaii_best_model)
+  }
+)
+
+marquesas_best_model <- lapply(
+  marquesas_best_model, \(x) {
+    aic <- calc_aic(
+      results = x,
+      daisie_data = eval(parse(text = "Marquesas"))
+    )
+    aicc <- calc_aicc(
+      results = x,
+      daisie_data = eval(parse(text = "Marquesas"))
+    )
+    marquesas_best_model <- cbind(x, aic = aic, aicc = aicc)
+    return(marquesas_best_model)
+  }
+)
+
+new_caledonia_best_model <- lapply(
+  new_caledonia_best_model, \(x) {
+    aic <- calc_aic(
+      results = x,
+      daisie_data = eval(parse(text = "New_Caledonia"))
+    )
+    aicc <- calc_aicc(
+      results = x,
+      daisie_data = eval(parse(text = "New_Caledonia"))
+    )
+    new_caledonia_best_model <- cbind(x, aic = aic, aicc = aicc)
+    return(new_caledonia_best_model)
+  }
+)
+
+saotome_principe_best_model <- lapply(
+  saotome_principe_best_model, \(x) {
+    aic <- calc_aic(
+      results = x,
+      daisie_data = eval(parse(text = "SaoTome_Principe"))
+    )
+    aicc <- calc_aicc(
+      results = x,
+      daisie_data = eval(parse(text = "SaoTome_Principe"))
+    )
+    saotome_principe_best_model <- cbind(x, aic = aic, aicc = aicc)
+    return(saotome_principe_best_model)
+  }
+)
+
+canaries_best_ic <- sapply(canaries_best_model, "[", c("bic", "aic", "aicc"))
+comoros_best_ic <- sapply(comoros_best_model, "[", c("bic", "aic", "aicc"))
+galapagos_best_ic <- sapply(galapagos_best_model, "[", c("bic", "aic", "aicc"))
+hawaii_best_ic <- sapply(hawaii_best_model, "[", c("bic", "aic", "aicc"))
+marquesas_best_ic <- sapply(marquesas_best_model, "[", c("bic", "aic", "aicc"))
+new_caledonia_best_ic <- sapply(
+  new_caledonia_best_model, "[", c("bic", "aic", "aicc")
+)
+saotome_principe_best_ic <- sapply(
+  saotome_principe_best_model, "[", c("bic", "aic", "aicc")
+)
+
+canaries_ic_tbl <- data.frame(
   island = "canaries",
-  model = names(canaries_best_bic),
-  bic = canaries_best_bic,
-  delta_bic = canaries_best_bic - min(canaries_best_bic)
+  model = colnames(canaries_best_ic),
+  bic = unlist(canaries_best_ic["bic", ]),
+  delta_bic = unlist(canaries_best_ic["bic", ]) -
+    min(unlist(canaries_best_ic["bic", ])),
+  delta_aic = unlist(canaries_best_ic["aic", ]) -
+    min(unlist(canaries_best_ic["aic", ])),
+  delta_aicc = unlist(canaries_best_ic["aicc", ]) -
+    min(unlist(canaries_best_ic["aicc", ]))
 )
-comoros_bic_tbl <- data.frame(
+comoros_ic_tbl <- data.frame(
   island = "comoros",
-  model = names(comoros_best_bic),
-  bic = comoros_best_bic,
-  delta_bic = comoros_best_bic - min(comoros_best_bic)
+  model = colnames(comoros_best_ic),
+  bic = unlist(comoros_best_ic["bic", ]),
+  delta_bic = unlist(comoros_best_ic["bic", ]) -
+    min(unlist(comoros_best_ic["bic", ])),
+  delta_aic = unlist(comoros_best_ic["aic", ]) -
+    min(unlist(comoros_best_ic["aic", ])),
+  delta_aicc = unlist(comoros_best_ic["aicc", ]) -
+    min(unlist(comoros_best_ic["aicc", ]))
 )
-galapagos_bic_tbl <- data.frame(
+galapagos_ic_tbl <- data.frame(
   island = "galapagos",
-  model = names(galapagos_best_bic),
-  bic = galapagos_best_bic,
-  delta_bic = galapagos_best_bic - min(galapagos_best_bic)
+  model = colnames(galapagos_best_ic),
+  bic = unlist(galapagos_best_ic["bic", ]),
+  delta_bic = unlist(galapagos_best_ic["bic", ]) -
+    min(unlist(galapagos_best_ic["bic", ])),
+  delta_aic = unlist(galapagos_best_ic["aic", ]) -
+    min(unlist(galapagos_best_ic["aic", ])),
+  delta_aicc = unlist(galapagos_best_ic["aicc", ]) -
+    min(unlist(galapagos_best_ic["aicc", ]))
 )
-hawaii_bic_tbl <- data.frame(
+hawaii_ic_tbl <- data.frame(
   island = "hawaii",
-  model = names(hawaii_best_bic),
-  bic = hawaii_best_bic,
-  delta_bic = hawaii_best_bic - min(hawaii_best_bic)
+  model = colnames(hawaii_best_ic),
+  bic = unlist(hawaii_best_ic["bic", ]),
+  delta_bic = unlist(hawaii_best_ic["bic", ]) -
+    min(unlist(hawaii_best_ic["bic", ])),
+  delta_aic = unlist(hawaii_best_ic["aic", ]) -
+    min(unlist(hawaii_best_ic["aic", ])),
+  delta_aicc = unlist(hawaii_best_ic["aicc", ]) -
+    min(unlist(hawaii_best_ic["aicc", ]))
 )
-marquesas_bic_tbl <- data.frame(
+marquesas_ic_tbl <- data.frame(
   island = "marquesas",
-  model = names(marquesas_best_bic),
-  bic = marquesas_best_bic,
-  delta_bic = marquesas_best_bic - min(marquesas_best_bic)
+  model = colnames(marquesas_best_ic),
+  bic = unlist(marquesas_best_ic["bic", ]),
+  delta_bic = unlist(marquesas_best_ic["bic", ]) -
+    min(unlist(marquesas_best_ic["bic", ])),
+  delta_aic = unlist(marquesas_best_ic["aic", ]) -
+    min(unlist(marquesas_best_ic["aic", ])),
+  delta_aicc = unlist(marquesas_best_ic["aicc", ]) -
+    min(unlist(marquesas_best_ic["aicc", ]))
 )
-new_caledonia_bic_tbl <- data.frame(
+new_caledonia_ic_tbl <- data.frame(
   island = "new_caledonia",
-  model = names(new_caledonia_best_bic),
-  bic = new_caledonia_best_bic,
-  delta_bic = new_caledonia_best_bic - min(new_caledonia_best_bic)
+  model = colnames(new_caledonia_best_ic),
+  bic = unlist(new_caledonia_best_ic["bic", ]),
+  delta_bic = unlist(new_caledonia_best_ic["bic", ]) -
+    min(unlist(new_caledonia_best_ic["bic", ])),
+  delta_aic = unlist(new_caledonia_best_ic["aic", ]) -
+    min(unlist(new_caledonia_best_ic["aic", ])),
+  delta_aicc = unlist(new_caledonia_best_ic["aicc", ]) -
+    min(unlist(new_caledonia_best_ic["aicc", ]))
 )
-saotome_principe_bic_tbl <- data.frame(
+saotome_principe_ic_tbl <- data.frame(
   island = "saotome_principe",
-  model = names(saotome_principe_best_bic),
-  bic = saotome_principe_best_bic,
-  delta_bic = saotome_principe_best_bic - min(saotome_principe_best_bic)
+  model = colnames(saotome_principe_best_ic),
+  bic = unlist(saotome_principe_best_ic["bic", ]),
+  delta_bic = unlist(saotome_principe_best_ic["bic", ]) -
+    min(unlist(saotome_principe_best_ic["bic", ])),
+  delta_aic = unlist(saotome_principe_best_ic["aic", ]) -
+    min(unlist(saotome_principe_best_ic["aic", ])),
+  delta_aicc = unlist(saotome_principe_best_ic["aicc", ]) -
+    min(unlist(saotome_principe_best_ic["aicc", ]))
 )
 
 # canaries BIC weight
-canaries_bic_tbl$rel_lik <- exp(-0.5 * canaries_bic_tbl$delta_bic)
-canaries_bic_tbl$bic_weight <- canaries_bic_tbl$rel_lik /
-  sum(canaries_bic_tbl$rel_lik)
+rel_lik <- exp(-0.5 * canaries_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
+canaries_ic_tbl <- cbind(canaries_ic_tbl, rel_lik)
+# tranpose for col-by division and transpose back
+ic_weights <- t(
+  t(canaries_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")]) /
+    colSums(canaries_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")])
+)
+colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
+canaries_ic_tbl <- cbind(canaries_ic_tbl, ic_weights)
 
 # comoros BIC weight
-comoros_bic_tbl$rel_lik <- exp(-0.5 * comoros_bic_tbl$delta_bic)
-comoros_bic_tbl$bic_weight <- comoros_bic_tbl$rel_lik /
-  sum(comoros_bic_tbl$rel_lik)
+rel_lik <- exp(-0.5 * comoros_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
+comoros_ic_tbl <- cbind(comoros_ic_tbl, rel_lik)
+# transpose for col-by division and transpose back
+ic_weights <- t(
+  t(comoros_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")]) /
+    colSums(comoros_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")])
+)
+colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
+comoros_ic_tbl <- cbind(comoros_ic_tbl, ic_weights)
 
 # Galapagos BIC weight
-galapagos_bic_tbl$rel_lik <- exp(-0.5 * galapagos_bic_tbl$delta_bic)
-galapagos_bic_tbl$bic_weight <- galapagos_bic_tbl$rel_lik /
-  sum(galapagos_bic_tbl$rel_lik)
+rel_lik <- exp(-0.5 * galapagos_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
+galapagos_ic_tbl <- cbind(galapagos_ic_tbl, rel_lik)
+# transpose for col-by division and transpose back
+ic_weights <- t(
+  t(galapagos_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")]) /
+    colSums(galapagos_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")])
+)
+colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
+galapagos_ic_tbl <- cbind(galapagos_ic_tbl, ic_weights)
 
 # Hawaii BIC weight
-hawaii_bic_tbl$rel_lik <- exp(-0.5 * hawaii_bic_tbl$delta_bic)
-hawaii_bic_tbl$bic_weight <- hawaii_bic_tbl$rel_lik /
-  sum(hawaii_bic_tbl$rel_lik)
+rel_lik <- exp(-0.5 * hawaii_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
+hawaii_ic_tbl <- cbind(hawaii_ic_tbl, rel_lik)
+# transpose for col-by division and transpose back
+ic_weights <- t(
+  t(hawaii_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")]) /
+    colSums(hawaii_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")])
+)
+colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
+hawaii_ic_tbl <- cbind(hawaii_ic_tbl, ic_weights)
 
 # Marquesas BIC weight
-marquesas_bic_tbl$rel_lik <- exp(-0.5 * marquesas_bic_tbl$delta_bic)
-marquesas_bic_tbl$bic_weight <- marquesas_bic_tbl$rel_lik /
-  sum(marquesas_bic_tbl$rel_lik)
+rel_lik <- exp(-0.5 * marquesas_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
+marquesas_ic_tbl <- cbind(marquesas_ic_tbl, rel_lik)
+# transpose for col-by division and transpose back
+ic_weights <- t(
+  t(marquesas_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")]) /
+    colSums(marquesas_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")])
+)
+colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
+marquesas_ic_tbl <- cbind(marquesas_ic_tbl, ic_weights)
 
 # New Caledonia BIC weight
-new_caledonia_bic_tbl$rel_lik <- exp(-0.5 * new_caledonia_bic_tbl$delta_bic)
-new_caledonia_bic_tbl$bic_weight <- new_caledonia_bic_tbl$rel_lik /
-  sum(new_caledonia_bic_tbl$rel_lik)
+rel_lik <- exp(-0.5 * new_caledonia_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
+new_caledonia_ic_tbl <- cbind(new_caledonia_ic_tbl, rel_lik)
+# transpose for col-by division and transpose back
+ic_weights <- t(
+  t(new_caledonia_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")]) /
+    colSums(new_caledonia_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")])
+)
+colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
+new_caledonia_ic_tbl <- cbind(new_caledonia_ic_tbl, ic_weights)
 
 # Sao Tome and Principe BIC weight
-saotome_principe_bic_tbl$rel_lik <-
-  exp(-0.5 * saotome_principe_bic_tbl$delta_bic)
-saotome_principe_bic_tbl$bic_weight <- saotome_principe_bic_tbl$rel_lik /
-  sum(saotome_principe_bic_tbl$rel_lik)
-
-bic_tbl <- rbind(canaries_bic_tbl,
-                 comoros_bic_tbl,
-                 galapagos_bic_tbl,
-                 hawaii_bic_tbl,
-                 marquesas_bic_tbl,
-                 new_caledonia_bic_tbl,
-                 saotome_principe_bic_tbl
+rel_lik <- exp(-0.5 * saotome_principe_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
+saotome_principe_ic_tbl <- cbind(saotome_principe_ic_tbl, rel_lik)
+# transpose for col-by division and transpose back
+ic_weights <- t(
+  t(saotome_principe_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")]) /
+    colSums(saotome_principe_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")])
 )
-rownames(bic_tbl) <- NULL
+colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
+saotome_principe_ic_tbl <- cbind(saotome_principe_ic_tbl, ic_weights)
 
-rr_bic_tbl <- subset(bic_tbl, bic_tbl$model != "cr_dd")
-clado_bic_tbl <- subset(bic_tbl, bic_tbl$model == "rr_lac_dd")
+ic_tbl <- rbind(canaries_ic_tbl,
+                comoros_ic_tbl,
+                galapagos_ic_tbl,
+                hawaii_ic_tbl,
+                marquesas_ic_tbl,
+                new_caledonia_ic_tbl,
+                saotome_principe_ic_tbl
+)
+rownames(ic_tbl) <- NULL
+
+rr_ic_tbl <- subset(ic_tbl, ic_tbl$model != "cr_dd")
+clado_ic_tbl <- subset(ic_tbl, ic_tbl$model == "rr_lac_dd")
 island_bic_tbl <- aggregate(
-  rr_bic_tbl$bic_weight,
-  by = list(island = rr_bic_tbl$island),
+  rr_ic_tbl$bic_weight,
+  by = list(island = rr_ic_tbl$island),
   FUN = sum
 )
 colnames(island_bic_tbl) <- c("island", "rr_bic_weight")
 
+island_aicc_tbl <- aggregate(
+  rr_ic_tbl$aicc_weight,
+  by = list(island = rr_ic_tbl$island),
+  FUN = sum
+)
+colnames(island_aicc_tbl) <- c("island", "rr_aicc_weight")
+
 island_bic_tbl <- cbind(
   island_bic_tbl,
-  clado_bic_weight = clado_bic_tbl$bic_weight,
+  clado_bic_weight = clado_ic_tbl$bic_weight,
+  norm_phy_dist = unlist(norm_island_phy_dist_list)
+)
+
+island_aicc_tbl <- cbind(
+  island_aicc_tbl,
+  clado_aicc_weight = clado_ic_tbl$aicc_weight,
   norm_phy_dist = unlist(norm_island_phy_dist_list)
 )
 
@@ -560,5 +765,21 @@ cor(
 cor(
   island_bic_tbl$clado_bic_weight,
   island_bic_tbl$norm_phy_dist,
+  method = "kendall"
+)
+
+# calculate kendall's correlation coefficient between sum of rr aicc weights and
+# normalised phylogenetic distance
+cor(
+  island_aicc_tbl$rr_aicc_weight,
+  island_aicc_tbl$norm_phy_dist,
+  method = "kendall"
+)
+
+# calculate kendall's correlation coefficient between rr clado aicc weights and
+# normalised phylogenetic distance
+cor(
+  island_aicc_tbl$clado_aicc_weight,
+  island_aicc_tbl$norm_phy_dist,
   method = "kendall"
 )
