@@ -3,7 +3,7 @@
 
 # names are extracted from DAISIE data and cross-referenced to the Jetz et al.
 # (2012) bird phylogeny and names are matched to the phylogeny. If the species
-# is not present on the phylogeny the name of the closest sister species is used
+# is not present on the phylogeny the name of a closely-related species is used
 
 # read in bird phylogeny
 bird_tree <- ape::read.nexus(
@@ -59,8 +59,8 @@ missing_species <- vapply(
 )
 col_names[missing_species]
 
-# those that are not found in the tree (TRUE) are replaced by sister species
-# that are found by manually inspecting the tree
+# those that are not found in the tree (TRUE) are replaced by closely-related
+# species that are found by manually inspecting the tree
 
 col_names[[2]] <- "Fringilla_teydea"
 col_names[[4]] <- "Parus_caeruleus"
@@ -76,10 +76,9 @@ col_names[[29]] <- "Fringilla_montifringilla"
 col_names[[30]] <- "Turdus_pilaris"
 col_names[[43]] <- "Serinus_canaria"
 col_names[[44]] <- "Carduelis_cannabina"
-col_names[[45]] <- "Parus_major"
+col_names[[45]] <- "Parus_caeruleus"
 
 # remove duplicate names to prevent under counting phylogenetic distance
-
 col_names[[7]] <- "Erithacus_akahige"
 col_names[[12]] <- "Regulus_madeirensis"
 col_names[[21]] <- "Alauda_arvensis"
@@ -89,6 +88,7 @@ tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
 
 island_tree <- ape::keep.tip(phy = bird_tree, tip = tree_index)
 island_tree
+
 plot(island_tree)
 
 island_phy_dist <- sum(island_tree$edge.length)
@@ -114,10 +114,11 @@ missing_species <- vapply(
 )
 col_names[missing_species]
 
-# those that are not found in the tree (TRUE) are replaced by sister species
-# that are found by manually inspecting the tree
+# those that are not found in the tree (TRUE) are replaced by closely-related
+# species that are found by manually inspecting the tree
 
 col_names[[1]] <- "Nectarinia_humbloti"
+
 col_names[[2]] <- "Muscicapa_caerulescens"
 col_names[[6]] <- "Cyanolanius_madagascarinus"
 col_names[[8]] <- "Nectarinia_coquerellii"
@@ -134,7 +135,6 @@ col_names[[26]] <- "Terpsiphone_viridis"
 col_names[[29]] <- "Turtur_chalcospilos"
 
 # remove duplicate names to prevent under counting phylogenetic distance
-
 col_names[[20]] <- "Hippolais_icterina"
 
 tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
@@ -166,12 +166,12 @@ missing_species <- vapply(
 )
 col_names[missing_species]
 
-# those that are not found in the tree (TRUE) are replaced by sister species
-# that are found by manually inspecting the tree
+# those that are not found in the tree (TRUE) are replaced by closely-related
+# species that are found by manually inspecting the tree
 
 col_names[[6]] <- "Pyrocephalus_rubinus"
 col_names[[7]] <- "Myiarchus_tyrannulus"
-col_names[[8]] <- "Setophaga_ruticilla"
+col_names[[8]] <- "Dendroica_petechia"
 
 tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
 
@@ -202,8 +202,8 @@ missing_species <- vapply(
 )
 col_names[missing_species]
 
-# those that are not found in the tree (TRUE) are replaced by sister species
-# that are found by manually inspecting the tree
+# those that are not found in the tree (TRUE) are replaced by closely-related
+# species that are found by manually inspecting the tree
 
 col_names[[1]] <- "Hypocolius_ampelinus"
 col_names[[2]] <- "Hemignathus_kauaiensis"
@@ -240,8 +240,8 @@ missing_species <- vapply(
 )
 col_names[missing_species]
 
-# those that are not found in the tree (TRUE) are replaced by sister species
-# that are found by manually inspecting the tree
+# those that are not found in the tree (TRUE) are replaced by closely-related
+# species that are found by manually inspecting the tree
 
 col_names[[1]] <- "Pomarea_iphis"
 col_names[[2]] <- "Ptilinopus_richardsii"
@@ -286,8 +286,8 @@ missing_species <- vapply(
 )
 col_names[missing_species]
 
-# those that are not found in the tree (TRUE) are replaced by sister species
-# that are found by manually inspecting the tree
+# those that are not found in the tree (TRUE) are replaced by closely-related
+# species that are found by manually inspecting the tree
 
 col_names[[1]] <- "Gymnomyza_samoensis"
 col_names[[2]] <- "Microeca_flavigaster"
@@ -343,8 +343,8 @@ missing_species <- vapply(
 )
 col_names[missing_species]
 
-# those that are not found in the tree (TRUE) are replaced by sister species
-# that are found by manually inspecting the tree
+# those that are not found in the tree (TRUE) are replaced by closely-related
+# species that are found by manually inspecting the tree
 
 col_names[[1]] <- "Nectarinia_verticalis"
 col_names[[2]] <- "Nectarinia_minulla"
@@ -355,7 +355,7 @@ col_names[[8]] <- "Ploceus_capensis"
 col_names[[9]] <- "Prinia_bairdii"
 col_names[[10]] <- "Lanius_collaris"
 col_names[[11]] <- "Oriolus_mellianus"
-col_names[[12]] <- "Zosterops_wallacei"
+col_names[[12]] <- "Speirops_lugubris"
 col_names[[14]] <- "Amaurocichla_bocagei"
 col_names[[15]] <- "Poicephalus_rufiventris"
 col_names[[17]] <- "Terpsiphone_viridis"
@@ -371,6 +371,7 @@ tree_index <- grep_tree(tree = bird_tree, colonist_names = col_names)
 
 island_tree <- ape::keep.tip(phy = bird_tree, tip = tree_index)
 island_tree
+
 plot(island_tree)
 
 island_phy_dist <- sum(island_tree$edge.length)
@@ -381,7 +382,7 @@ norm_island_phy_dist
 
 norm_island_phy_dist_list$SaoTome_Principe <- norm_island_phy_dist
 
-# Calculate the BIC weights for each model
+# Calculate the BIC and AICc weights for each model
 
 # Canaries
 
