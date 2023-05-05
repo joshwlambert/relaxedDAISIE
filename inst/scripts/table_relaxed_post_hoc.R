@@ -1,5 +1,13 @@
 # script to produce post hoc tables that can be copied and modified in latex
 
+data("Canaries")
+data("Comoros")
+data("Galapagos")
+data("Hawaii")
+data("Marquesas")
+data("New_Caledonia")
+data("SaoTome_Principe")
+
 tab_list <- list()
 models <- c("cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_k", "rr_laa_dd")
 islands <- c("Galapagos", "Hawaii", "Marquesas")
@@ -8,6 +16,15 @@ for (i in seq_along(islands)) {
   tab <- data.frame()
   for (model in models) {
     best_model <- choose_best_model(data_name = islands[i], model = model)
+    best_model <- cbind(best_model, aic = NaN, aicc = NaN)
+    best_model[["aic"]] <- calc_aic(
+      results = best_model,
+      daisie_data = eval(parse(text = islands[i]))
+    )
+    best_model[["aicc"]] <- calc_aicc(
+      results = best_model,
+      daisie_data = eval(parse(text = islands[i]))
+    )
     if (model == "cr_dd") {
       best_model <- cbind(
         best_model, sd = NA_real_, lambda_c2 = NA_real_, mu2 = NA_real_,
@@ -16,9 +33,9 @@ for (i in seq_along(islands)) {
       best_model <-
         best_model[, c(
           "lambda_c", "mu", "K", "gamma", "lambda_a", "lambda_c2", "mu2", "K2",
-          "sd", "loglik", "bic"
+          "sd", "loglik", "bic", "aic", "aicc"
         )]
-    } else if (grepl("rr_", model)) {
+    } else {
       rm_index <- which(colnames(best_model) %in% c("df", "conv"))
       best_model <- best_model[, -rm_index]
       best_model <- cbind(
@@ -27,7 +44,7 @@ for (i in seq_along(islands)) {
       best_model <-
         best_model[, c(
           "lambda_c", "mu", "K", "gamma", "lambda_a", "lambda_c2", "mu2", "K2",
-          "sd", "loglik", "bic"
+          "sd", "loglik", "bic", "aic", "aicc"
         )]
     }
     best_model <- cbind(model = model, best_model)
@@ -47,11 +64,20 @@ for (i in seq_along(islands)) {
   tab <- tab_list[[i]]
   for (model in models) {
     best_model <- choose_best_model(data_name = islands[i], model = model)
+    best_model <- cbind(best_model, aic = NaN, aicc = NaN)
+    best_model[["aic"]] <- calc_aic(
+      results = best_model,
+      daisie_data = eval(parse(text = islands[i]))
+    )
+    best_model[["aicc"]] <- calc_aicc(
+      results = best_model,
+      daisie_data = eval(parse(text = islands[i]))
+    )
     best_model <- cbind(best_model, sd = NA_real_)
     best_model <-
       best_model[, c(
         "lambda_c", "mu", "K", "gamma", "lambda_a", "lambda_c2", "mu2", "K2",
-        "sd", "loglik", "bic"
+        "sd", "loglik", "bic", "aic", "aicc"
       )]
     best_model <- cbind(model = model, best_model)
     tab <- rbind(tab, best_model)
@@ -74,7 +100,7 @@ tab_list <- lapply(tab_list, \(x) {
 tab_list <- lapply(tab_list, \(x) {
   colnames(x) <- c("Model", "$\\lambda^c$", "$\\mu$", "$K'$", "$\\gamma$",
                    "$\\lambda^a$", "$\\lambda^c_2$", "$\\mu_2$", "$K'_2$",
-                   "$\\sigma$", "loglik", "BIC")
+                   "$\\sigma$", "loglik", "BIC", "AIC", "AICc")
   x
 })
 
@@ -101,10 +127,12 @@ for (i in seq_along(islands)) {
         5, # carrying capacity 2
         6, # sd
         6, # loglik
-        6  # BIC
+        6, # BIC
+        6, # AIC
+        6  # AICc
       ),
-      display = c("s", "s", rep("g", 11)),
-      align = "ccccccccccccc",
+      display = c("s", "s", rep("g", 13)),
+      align = "ccccccccccccccc",
       caption = paste0(
         "Maximum likelihood results for the ",
         gsub(pattern = "_2type", replacement = "", x = islands[i]),
@@ -124,7 +152,7 @@ for (i in seq_along(islands)) {
         "corresponding parameter, in this case $\\mu_2$ = $\\mu$."),
       label = paste0("tab:", islands[i], "_ml")
     ),
-    size = "small",
+    size = "footnotesize",
     math.style.exponents = TRUE,
     NA.string = "NA",
     include.rownames = FALSE,
