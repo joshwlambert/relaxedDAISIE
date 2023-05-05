@@ -121,7 +121,7 @@ print(
       have six free parameters."),
     label = paste0("tab:archipelagos_ml")
   ),
-  size = "fontnotesize",
+  size = "footnotesize",
   math.style.exponents = TRUE,
   NA.string = "NA",
   include.rownames = FALSE,
