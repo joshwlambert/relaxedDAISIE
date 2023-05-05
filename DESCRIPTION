@@ -33,6 +33,6 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Remotes:
-    tece-lab/DAISIEutils@rm_daisie_dep
+    tece-lab/DAISIEutils
 Depends: 
     R (>= 4.2.0)
