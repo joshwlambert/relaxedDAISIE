@@ -631,7 +631,9 @@ saotome_principe_ic_tbl <- data.frame(
 )
 
 # canaries BIC weight
-rel_lik <- exp(-0.5 * canaries_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+rel_lik <- exp(
+  -0.5 * canaries_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")]
+)
 colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
 canaries_ic_tbl <- cbind(canaries_ic_tbl, rel_lik)
 # tranpose for col-by division and transpose back
@@ -643,7 +645,9 @@ colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
 canaries_ic_tbl <- cbind(canaries_ic_tbl, ic_weights)
 
 # comoros BIC weight
-rel_lik <- exp(-0.5 * comoros_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+rel_lik <- exp(
+  -0.5 * comoros_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")]
+)
 colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
 comoros_ic_tbl <- cbind(comoros_ic_tbl, rel_lik)
 # transpose for col-by division and transpose back
@@ -655,7 +659,9 @@ colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
 comoros_ic_tbl <- cbind(comoros_ic_tbl, ic_weights)
 
 # Galapagos BIC weight
-rel_lik <- exp(-0.5 * galapagos_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+rel_lik <- exp(
+  -0.5 * galapagos_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")]
+)
 colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
 galapagos_ic_tbl <- cbind(galapagos_ic_tbl, rel_lik)
 # transpose for col-by division and transpose back
@@ -667,7 +673,9 @@ colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
 galapagos_ic_tbl <- cbind(galapagos_ic_tbl, ic_weights)
 
 # Hawaii BIC weight
-rel_lik <- exp(-0.5 * hawaii_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+rel_lik <- exp(
+  -0.5 * hawaii_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")]
+)
 colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
 hawaii_ic_tbl <- cbind(hawaii_ic_tbl, rel_lik)
 # transpose for col-by division and transpose back
@@ -679,7 +687,9 @@ colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
 hawaii_ic_tbl <- cbind(hawaii_ic_tbl, ic_weights)
 
 # Marquesas BIC weight
-rel_lik <- exp(-0.5 * marquesas_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+rel_lik <- exp(
+  -0.5 * marquesas_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")]
+)
 colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
 marquesas_ic_tbl <- cbind(marquesas_ic_tbl, rel_lik)
 # transpose for col-by division and transpose back
@@ -691,25 +701,33 @@ colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
 marquesas_ic_tbl <- cbind(marquesas_ic_tbl, ic_weights)
 
 # New Caledonia BIC weight
-rel_lik <- exp(-0.5 * new_caledonia_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+rel_lik <- exp(
+  -0.5 * new_caledonia_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")]
+)
 colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
 new_caledonia_ic_tbl <- cbind(new_caledonia_ic_tbl, rel_lik)
 # transpose for col-by division and transpose back
 ic_weights <- t(
   t(new_caledonia_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")]) /
-    colSums(new_caledonia_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")])
+    colSums(
+      new_caledonia_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")]
+    )
 )
 colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
 new_caledonia_ic_tbl <- cbind(new_caledonia_ic_tbl, ic_weights)
 
 # Sao Tome and Principe BIC weight
-rel_lik <- exp(-0.5 * saotome_principe_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+rel_lik <- exp(
+  -0.5 * saotome_principe_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")]
+)
 colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
 saotome_principe_ic_tbl <- cbind(saotome_principe_ic_tbl, rel_lik)
 # transpose for col-by division and transpose back
 ic_weights <- t(
   t(saotome_principe_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")]) /
-    colSums(saotome_principe_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")])
+    colSums(
+      saotome_principe_ic_tbl[c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")]
+    )
 )
 colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
 saotome_principe_ic_tbl <- cbind(saotome_principe_ic_tbl, ic_weights)

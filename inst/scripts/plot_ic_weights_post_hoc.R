@@ -147,11 +147,17 @@ marquesas_best_2type_model <- lapply(
 )
 
 galapagos_best_ic <- sapply(galapagos_best_model, "[", c("bic", "aic", "aicc"))
-galapagos_best_2type_ic <- sapply(galapagos_best_2type_model, "[", c("bic", "aic", "aicc"))
+galapagos_best_2type_ic <- sapply(
+  galapagos_best_2type_model, "[", c("bic", "aic", "aicc")
+)
 hawaii_best_ic <- sapply(hawaii_best_model, "[", c("bic", "aic", "aicc"))
-hawaii_best_2type_ic <- sapply(hawaii_best_2type_model, "[", c("bic", "aic", "aicc"))
+hawaii_best_2type_ic <- sapply(
+  hawaii_best_2type_model, "[", c("bic", "aic", "aicc")
+)
 marquesas_best_ic <- sapply(marquesas_best_model, "[", c("bic", "aic", "aicc"))
-marquesas_best_2type_ic <- sapply(marquesas_best_2type_model, "[", c("bic", "aic", "aicc"))
+marquesas_best_2type_ic <- sapply(
+  marquesas_best_2type_model, "[", c("bic", "aic", "aicc")
+)
 
 galapagos_best_ic <- cbind(galapagos_best_ic, galapagos_best_2type_ic)
 hawaii_best_ic <- cbind(hawaii_best_ic, hawaii_best_2type_ic)
@@ -192,7 +198,9 @@ marquesas_ic_tbl <- data.frame(
 )
 
 # Galapagos BIC weight
-rel_lik <- exp(-0.5 * galapagos_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+rel_lik <- exp(
+  -0.5 * galapagos_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")]
+)
 colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
 galapagos_ic_tbl <- cbind(galapagos_ic_tbl, rel_lik)
 # transpose for col-by division and transpose back
@@ -204,7 +212,9 @@ colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
 galapagos_ic_tbl <- cbind(galapagos_ic_tbl, ic_weights)
 
 # Hawaii BIC weight
-rel_lik <- exp(-0.5 * hawaii_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+rel_lik <- exp(
+  -0.5 * hawaii_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")]
+)
 colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
 hawaii_ic_tbl <- cbind(hawaii_ic_tbl, rel_lik)
 # transpose for col-by division and transpose back
@@ -216,7 +226,9 @@ colnames(ic_weights) <- c("bic_weight", "aic_weight", "aicc_weight")
 hawaii_ic_tbl <- cbind(hawaii_ic_tbl, ic_weights)
 
 # Marquesas BIC weight
-rel_lik <- exp(-0.5 * marquesas_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")])
+rel_lik <- exp(
+  -0.5 * marquesas_ic_tbl[, c("delta_bic", "delta_aic", "delta_aicc")]
+)
 colnames(rel_lik) <- c("bic_rel_lik", "aic_rel_lik", "aicc_rel_lik")
 marquesas_ic_tbl <- cbind(marquesas_ic_tbl, rel_lik)
 # transpose for col-by division and transpose back
@@ -229,8 +241,8 @@ marquesas_ic_tbl <- cbind(marquesas_ic_tbl, ic_weights)
 
 
 ic_tbl <- rbind(galapagos_ic_tbl,
-                 hawaii_ic_tbl,
-                 marquesas_ic_tbl
+                hawaii_ic_tbl,
+                marquesas_ic_tbl
 )
 rownames(ic_tbl) <- NULL
 
@@ -454,7 +466,7 @@ ic_plot <- cowplot::plot_grid(
     legend.position = "none",
     axis.text.x = ggplot2::element_text(angle = 30, hjust = 1)
   ),
-  align = 'vh',
+  align = "vh",
   labels = c("A", "B"),
   nrow = 1
 )
