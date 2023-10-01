@@ -129,4 +129,3 @@ print(
   sanitize.colnames.function = identity,
   sanitize.text.function = force
 )
-
