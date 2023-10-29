@@ -1,0 +1,103 @@
+Submitted batch job 5754603
+Submitted batch job 5754613
+Submitted batch job 5754623
+Submitted batch job 5754633
+Submitted batch job 5754643
+Submitted batch job 5754653
+Submitted batch job 5754663
+Submitted batch job 5754664
+Submitted batch job 5754665
+Submitted batch job 5754666
+Submitted batch job 5754667
+Submitted batch job 5754668
+Submitted batch job 5754669
+
+###############################################################################
+Hábrók Cluster
+Job 5754602 for user p287218
+Finished at: Tue Oct 24 23:45:55 CEST 2023
+
+Job details:
+============
+
+Job ID              : 5754602
+Name                : Galapagos
+User                : p287218
+Partition           : gelifesmedium
+Nodes               : gelifes6
+Number of Nodes     : 1
+Cores               : 1
+Number of Tasks     : 1
+State               : COMPLETED
+Submit              : 2023-10-24T23:45:22
+Start               : 2023-10-24T23:45:23
+End                 : 2023-10-24T23:45:55
+Reserved walltime   : 3-00:00:00
+Used walltime       :   00:00:32
+Used CPU time       : --
+% User (Computation): --
+% System (I/O)      : --
+Mem reserved        : 5G
+Max Mem (Node/step) : 436.00K (gelifes6, per node)
+Full Max Mem usage  : 436.00K
+Total Disk Read     : 257.32K
+Total Disk Write    : 1.86K
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################
+Submitted batch job 5754633
+Submitted batch job 5754643
+Submitted batch job 5754653
+Submitted batch job 5754663
+Submitted batch job 5754664
+Submitted batch job 5754665
+Submitted batch job 5754666
+Submitted batch job 5754667
+Submitted batch job 5754668
+Submitted batch job 5754669
+
+###############################################################################
+Hábrók Cluster
+Job 5754602 for user p287218
+Finished at: Tue Oct 24 23:45:55 CEST 2023
+
+Job details:
+============
+
+Job ID              : 5754602
+Name                : Galapagos
+User                : p287218
+Partition           : gelifesmedium
+Nodes               : gelifes6
+Number of Nodes     : 1
+Cores               : 1
+Number of Tasks     : 1
+State               : COMPLETED
+Submit              : 2023-10-24T23:45:22
+Start               : 2023-10-24T23:45:23
+End                 : 2023-10-24T23:45:55
+Reserved walltime   : 3-00:00:00
+Used walltime       :   00:00:32
+Used CPU time       : --
+% User (Computation): --
+% System (I/O)      : --
+Mem reserved        : 5G
+Max Mem (Node/step) : 436.00K (gelifes6, per node)
+Full Max Mem usage  : 436.00K
+Total Disk Read     : 257.32K
+Total Disk Write    : 1.86K
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################

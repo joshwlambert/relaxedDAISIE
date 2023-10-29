@@ -1,0 +1,92 @@
+Submitted batch job 5754999
+Submitted batch job 5755009
+Submitted batch job 5755019
+Submitted batch job 5755029
+Submitted batch job 5755039
+Submitted batch job 5755049
+
+###############################################################################
+Hábrók Cluster
+Job 5754998 for user p287218
+Finished at: Tue Oct 24 23:56:22 CEST 2023
+
+Job details:
+============
+
+Job ID              : 5754998
+Name                : Canaries
+User                : p287218
+Partition           : gelifesmedium
+Nodes               : gelifes6
+Number of Nodes     : 1
+Cores               : 1
+Number of Tasks     : 1
+State               : COMPLETED
+Submit              : 2023-10-24T23:55:55
+Start               : 2023-10-24T23:55:55
+End                 : 2023-10-24T23:56:22
+Reserved walltime   : 3-00:00:00
+Used walltime       :   00:00:27
+Used CPU time       : --
+% User (Computation): --
+% System (I/O)      : --
+Mem reserved        : 5G
+Max Mem (Node/step) : 0.00  (Node unknown, N/A)
+Full Max Mem usage  : 0.00 
+Total Disk Read     : 0.00 
+Total Disk Write    : 0.00 
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################
+Submitted batch job 5754999
+Submitted batch job 5755009
+Submitted batch job 5755019
+Submitted batch job 5755029
+Submitted batch job 5755039
+Submitted batch job 5755049
+
+###############################################################################
+Hábrók Cluster
+Job 5754998 for user p287218
+Finished at: Tue Oct 24 23:56:22 CEST 2023
+
+Job details:
+============
+
+Job ID              : 5754998
+Name                : Canaries
+User                : p287218
+Partition           : gelifesmedium
+Nodes               : gelifes6
+Number of Nodes     : 1
+Cores               : 1
+Number of Tasks     : 1
+State               : COMPLETED
+Submit              : 2023-10-24T23:55:55
+Start               : 2023-10-24T23:55:55
+End                 : 2023-10-24T23:56:22
+Reserved walltime   : 3-00:00:00
+Used walltime       :   00:00:27
+Used CPU time       : --
+% User (Computation): --
+% System (I/O)      : --
+Mem reserved        : 5G
+Max Mem (Node/step) : 0.00  (Node unknown, N/A)
+Full Max Mem usage  : 0.00 
+Total Disk Read     : 0.00 
+Total Disk Write    : 0.00 
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################

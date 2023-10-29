@@ -1,0 +1,103 @@
+Submitted batch job 5754734
+Submitted batch job 5754744
+Submitted batch job 5754754
+Submitted batch job 5754764
+Submitted batch job 5754774
+Submitted batch job 5754784
+Submitted batch job 5754785
+Submitted batch job 5754786
+Submitted batch job 5754787
+Submitted batch job 5754788
+Submitted batch job 5754789
+Submitted batch job 5754790
+Submitted batch job 5754791
+
+###############################################################################
+Hábrók Cluster
+Job 5754733 for user p287218
+Finished at: Tue Oct 24 23:47:46 CEST 2023
+
+Job details:
+============
+
+Job ID              : 5754733
+Name                : Hawaii
+User                : p287218
+Partition           : gelifesmedium
+Nodes               : gelifes6
+Number of Nodes     : 1
+Cores               : 1
+Number of Tasks     : 1
+State               : COMPLETED
+Submit              : 2023-10-24T23:47:14
+Start               : 2023-10-24T23:47:14
+End                 : 2023-10-24T23:47:46
+Reserved walltime   : 3-00:00:00
+Used walltime       :   00:00:32
+Used CPU time       : --
+% User (Computation): --
+% System (I/O)      : --
+Mem reserved        : 5G
+Max Mem (Node/step) : 76.00K (gelifes6, per node)
+Full Max Mem usage  : 76.00K
+Total Disk Read     : 2.28K
+Total Disk Write    : 1.00 
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################
+Submitted batch job 5754764
+Submitted batch job 5754774
+Submitted batch job 5754784
+Submitted batch job 5754785
+Submitted batch job 5754786
+Submitted batch job 5754787
+Submitted batch job 5754788
+Submitted batch job 5754789
+Submitted batch job 5754790
+Submitted batch job 5754791
+
+###############################################################################
+Hábrók Cluster
+Job 5754733 for user p287218
+Finished at: Tue Oct 24 23:47:46 CEST 2023
+
+Job details:
+============
+
+Job ID              : 5754733
+Name                : Hawaii
+User                : p287218
+Partition           : gelifesmedium
+Nodes               : gelifes6
+Number of Nodes     : 1
+Cores               : 1
+Number of Tasks     : 1
+State               : COMPLETED
+Submit              : 2023-10-24T23:47:14
+Start               : 2023-10-24T23:47:14
+End                 : 2023-10-24T23:47:46
+Reserved walltime   : 3-00:00:00
+Used walltime       :   00:00:32
+Used CPU time       : --
+% User (Computation): --
+% System (I/O)      : --
+Mem reserved        : 5G
+Max Mem (Node/step) : 76.00K (gelifes6, per node)
+Full Max Mem usage  : 76.00K
+Total Disk Read     : 2.28K
+Total Disk Write    : 1.00 
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################
