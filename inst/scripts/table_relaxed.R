@@ -110,15 +110,17 @@ print(
     display = c("s", "s", rep("g", 11)),
     align = "ccccccccccccc",
     caption = paste0(
-      "Maximum likelihood results for the archipelagos for ",
-      "a selection of homogeneous-rate (HR) and relaxed-rate (RR) models. ",
-      "Parameters estimated are: cladogenesis ($\\lambda^c$), extinction ",
+      "Maximum likelihood parameter estimates and model diagnostics for ",
+      "each of the seven archipelagos. Results from fitting homogeneous-rate ",
+      "(HR) and relaxed-rate (RR) models. Parameters estimated are: ",
+      "cladogenesis ($\\lambda^c$), extinction ",
       "($\\mu$), carrying capacity (\\textit{K}), colonisation ($\\gamma$), ",
       "anagenesis ($\\lambda^a$), standard deviation of relaxed parameter ",
-      "($\\sigma$), as well as the models maximised log likelihood (loglik) ",
-      "and Bayesian Information Criterion (BIC). The homogeneous-rate model has
-      five free parameters (degrees of freedom), while the relaxed-rate models
-      have six free parameters."),
+      "($\\sigma$), as well as the maximum log likelihood (loglik), and ",
+      "Bayesian Information Criterion (BIC), Akaike Information Criterion ",
+      "(AIC) and bias-corrected AIC (AICc). The homogeneous-rate model has ",
+      "five free parameters (degrees of freedom), because $\sigma$ is fixed ",
+      "to zero, while the relaxed-rate models have six free parameters."),
     label = paste0("tab:archipelagos_ml")
   ),
   size = "footnotesize",

@@ -342,9 +342,9 @@ bic_weights <- ggplot2::ggplot(data = ic_tbl) +
       "HR 2type Extinction Carrying Capacity",
       "HR 2type Cladogenesis Extinction Carrying Capacity"
     ),
-    values = c("#8DD3C7", "white", "#80B1D3", "#FDB462", "#BEBADA", "#FB8072",
-               "white", "#3876a2", "#df7702", "#655ca7", "#90b500", "#8F00FF",
-               "#C12267", "#006400")
+    values = c("#708090", "white", "#FCAE91", "#FB6A4A", "#DE2D26", "#A50F15",
+               "white", "#BAE4B3", "#74C476", "#238B45", "#BDD7E7", "#6BAED6",
+               "#3182BD", "#08519C")
   ) +
   ggplot2::scale_y_continuous(name = "BIC Weight") +
   ggplot2::scale_x_discrete(
@@ -391,9 +391,9 @@ aic_weights <- ggplot2::ggplot(data = ic_tbl) +
       "HR 2type Extinction Carrying Capacity",
       "HR 2type Cladogenesis Extinction Carrying Capacity"
     ),
-    values = c("#8DD3C7", "white", "#80B1D3", "#FDB462", "#BEBADA", "#FB8072",
-               "white", "#3876a2", "#df7702", "#655ca7", "#90b500", "#8F00FF",
-               "#C12267", "#006400")
+    values = c("#708090", "white", "#FCAE91", "#FB6A4A", "#DE2D26", "#A50F15",
+               "white", "#BAE4B3", "#74C476", "#238B45", "#BDD7E7", "#6BAED6",
+               "#3182BD", "#08519C")
   ) +
   ggplot2::scale_y_continuous(name = "AIC Weight") +
   ggplot2::scale_x_discrete(
@@ -440,9 +440,9 @@ aicc_weights <- ggplot2::ggplot(data = ic_tbl) +
       "HR 2type Extinction Carrying Capacity",
       "HR 2type Cladogenesis Extinction Carrying Capacity"
     ),
-    values = c("#8DD3C7", "white", "#80B1D3", "#FDB462", "#BEBADA", "#FB8072",
-               "white", "#3876a2", "#df7702", "#655ca7", "#90b500", "#8F00FF",
-               "#C12267", "#006400")
+    values = c("#708090", "white", "#FCAE91", "#FB6A4A", "#DE2D26", "#A50F15",
+               "white", "#BAE4B3", "#74C476", "#238B45", "#BDD7E7", "#6BAED6",
+               "#3182BD", "#08519C")
   ) +
   ggplot2::scale_y_continuous(name = "AICc Weight") +
   ggplot2::scale_x_discrete(
