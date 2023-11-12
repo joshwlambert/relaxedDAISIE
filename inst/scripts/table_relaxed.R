@@ -119,7 +119,7 @@ print(
       "($\\sigma$), as well as the maximum log likelihood (loglik), and ",
       "Bayesian Information Criterion (BIC), Akaike Information Criterion ",
       "(AIC) and bias-corrected AIC (AICc). The homogeneous-rate model has ",
-      "five free parameters (degrees of freedom), because $\sigma$ is fixed ",
+      "five free parameters (degrees of freedom), because $\\sigma$ is fixed ",
       "to zero, while the relaxed-rate models have six free parameters."),
     label = paste0("tab:archipelagos_ml")
   ),
