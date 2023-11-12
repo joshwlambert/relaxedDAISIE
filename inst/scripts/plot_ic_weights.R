@@ -384,7 +384,7 @@ ggplot2::ggplot(data = ic_tbl) +
       "Cladogenesis",
       "Extinction"
     ),
-    values = c("#8DD3C7", "#BEBADA", "#FB8072", "#80B1D3", "#FDB462")
+    values = c("#708090", "#8DD3C7", "#BEBADA", "#FB8072", "#80B1D3", "#FDB462")
   ) +
   ggplot2::scale_y_continuous(name = "BIC Weight") +
   ggplot2::scale_x_discrete(
@@ -442,7 +442,7 @@ bic_weights <- ggplot2::ggplot(data = ic_tbl) +
       "Anagenesis"
     ),
     values = colour <- c(
-      "#8DD3C7", "white", "#80B1D3", "#FDB462", "#BEBADA", "#FB8072"
+      "#708090", "white", "#8DD3C7", "#FDB462", "#BEBADA", "#F0E442"
     )
   ) +
   ggplot2::scale_y_continuous(name = "BIC Weight") +
@@ -484,7 +484,7 @@ aic_weights <- ggplot2::ggplot(data = ic_tbl) +
       "Anagenesis"
     ),
     values = colour <- c(
-      "#8DD3C7", "white", "#80B1D3", "#FDB462", "#BEBADA", "#FB8072"
+      "#708090", "white", "#8DD3C7", "#FDB462", "#BEBADA", "#F0E442"
     )
   ) +
   ggplot2::scale_y_continuous(name = "AIC Weight") +
@@ -526,7 +526,7 @@ aicc_weights <- ggplot2::ggplot(data = ic_tbl) +
       "Anagenesis"
     ),
     values = colour <- c(
-      "#8DD3C7", "white", "#80B1D3", "#FDB462", "#BEBADA", "#FB8072"
+      "#708090", "white", "#8DD3C7", "#FDB462", "#BEBADA", "#F0E442"
     )
   ) +
   ggplot2::scale_y_continuous(name = "AICc Weight") +

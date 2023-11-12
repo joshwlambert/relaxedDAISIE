@@ -384,11 +384,6 @@ norm_island_phy_dist_list$SaoTome_Principe <- norm_island_phy_dist
 
 # Calculate the BIC and AICc weights for each model
 
-# Canaries
-
-# canaries does not have results for relaxed carrying capacity so requires a
-# different set of models
-
 model_list <- list(
   "cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_k", "rr_laa_dd"
 )
@@ -800,4 +795,133 @@ cor(
   island_aicc_tbl$clado_aicc_weight,
   island_aicc_tbl$norm_phy_dist,
   method = "kendall"
+)
+
+# prettify island names for plots
+island_bic_tbl$island <- c(
+  "Canaries", "Comoros", "Galápagos", "Hawai'i", "Marquesas", "New Caledonia",
+  "São Tomé & Príncipe"
+)
+island_aicc_tbl$island <- c(
+  "Canaries", "Comoros", "Galápagos", "Hawai'i", "Marquesas", "New Caledonia",
+  "São Tomé & Príncipe"
+)
+
+# plot correlation data
+
+# rr bic weights
+rr_bic_plot <- ggplot2::ggplot(data = island_bic_tbl) +
+  ggplot2::geom_point(
+    mapping = ggplot2::aes(
+      x = rr_bic_weight,
+      y = norm_phy_dist
+      )
+  ) +
+  ggplot2::scale_x_continuous(
+    name = "Sum of Relaxed-rate BIC Weights",
+    limits = c(0, 1)
+  ) +
+  ggplot2::scale_y_continuous(
+    name = "Normalised Phylogenetic Distance on Archipelago",
+    n.breaks = 10
+  ) +
+  ggrepel::geom_label_repel(
+    ggplot2::aes(x = rr_bic_weight, y = norm_phy_dist, label = island),
+    box.padding   = 0.3,
+    point.padding = 0.3,
+    segment.color = 'grey50',
+    seed = 1
+  ) +
+  ggplot2::theme_classic()
+
+# clado bic
+clado_bic_plot <- ggplot2::ggplot(data = island_bic_tbl) +
+  ggplot2::geom_point(
+    mapping = ggplot2::aes(
+      x = clado_bic_weight,
+      y = norm_phy_dist
+    )
+  ) +
+  ggplot2::scale_x_continuous(
+    name = "Relaxed cladogenesis BIC Weight",
+    limits = c(0, 1)
+  ) +
+  ggplot2::scale_y_continuous(
+    name = "Normalised Phylogenetic Distance on Archipelago",
+    n.breaks = 10
+  ) +
+  ggrepel::geom_label_repel(
+    ggplot2::aes(x = clado_bic_weight, y = norm_phy_dist, label = island),
+    box.padding   = 0.3,
+    point.padding = 0.3,
+    segment.color = 'grey50',
+    seed = 1
+  ) +
+  ggplot2::theme_classic()
+
+# rr aicc weights
+rr_aicc_plot <- ggplot2::ggplot(data = island_aicc_tbl) +
+  ggplot2::geom_point(
+    mapping = ggplot2::aes(
+      x = rr_aicc_weight,
+      y = norm_phy_dist
+    )
+  ) +
+  ggplot2::scale_x_continuous(
+    name = "Sum of Relaxed-rate AICc Weights",
+    limits = c(0, 1)
+  ) +
+  ggplot2::scale_y_continuous(
+    name = "Normalised Phylogenetic Distance on Archipelago",
+    n.breaks = 10
+  ) +
+  ggrepel::geom_label_repel(
+    ggplot2::aes(x = rr_aicc_weight, y = norm_phy_dist, label = island),
+    box.padding   = 0.3,
+    point.padding = 0.3,
+    segment.color = 'grey50',
+    seed = 1
+  ) +
+  ggplot2::theme_classic()
+
+# clado aicc
+clado_aicc_plot <- ggplot2::ggplot(data = island_aicc_tbl) +
+  ggplot2::geom_point(
+    mapping = ggplot2::aes(
+      x = clado_aicc_weight,
+      y = norm_phy_dist
+    )
+  ) +
+  ggplot2::scale_x_continuous(
+    name = "Relaxed cladogenesis AICc Weight",
+    limits = c(0, 1)
+  ) +
+  ggplot2::scale_y_continuous(
+    name = "Normalised Phylogenetic Distance on Archipelago",
+    n.breaks = 10
+  ) +
+  ggrepel::geom_label_repel(
+    ggplot2::aes(x = clado_aicc_weight, y = norm_phy_dist, label = island),
+    box.padding   = 0.3,
+    point.padding = 0.3,
+    segment.color = 'grey50',
+    seed = 1
+  ) +
+  ggplot2::theme_classic()
+
+# create combined plot
+cor_plot <- cowplot::plot_grid(
+  rr_bic_plot, clado_bic_plot, rr_aicc_plot, clado_aicc_plot,
+  align = "vh",
+  nrow = 2
+)
+
+ggplot2::ggsave(
+  plot = cor_plot,
+  filename = file.path("inst", "plots", "island_phy_dist.png"),
+  device = "png",
+  width = 250,
+  height = 200,
+  units = "mm",
+  dpi = 300
 )

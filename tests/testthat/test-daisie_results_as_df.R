@@ -1,6 +1,6 @@
 test_that("daisie_results_as_df works", {
   tbl <- daisie_results_as_df(islands = "Canaries")
-  expect_equal(nrow(tbl), 53)
+  expect_equal(nrow(tbl), 59)
   expect_equal(ncol(tbl), 12)
   expect_equal(
     colnames(tbl),
