@@ -442,7 +442,7 @@ bic_weights <- ggplot2::ggplot(data = ic_tbl) +
       "Anagenesis"
     ),
     values = colour <- c(
-      "#708090", "white", "#8DD3C7", "#F0E442","#BEBADA", "#FDB462"
+      "#708090", "white", "#8DD3C7", "#FDB462", "#BEBADA", "#F0E442"
     )
   ) +
   ggplot2::scale_y_continuous(name = "BIC Weight") +
@@ -484,7 +484,7 @@ aic_weights <- ggplot2::ggplot(data = ic_tbl) +
       "Anagenesis"
     ),
     values = colour <- c(
-      "#708090", "white", "#8DD3C7", "#80B1D3", "#FDB462", "#BEBADA", "#FB8072"
+      "#708090", "white", "#8DD3C7", "#FDB462", "#BEBADA", "#F0E442"
     )
   ) +
   ggplot2::scale_y_continuous(name = "AIC Weight") +
@@ -526,7 +526,7 @@ aicc_weights <- ggplot2::ggplot(data = ic_tbl) +
       "Anagenesis"
     ),
     values = colour <- c(
-      "#708090", "white", "#8DD3C7", "#80B1D3", "#FDB462", "#BEBADA", "#FB8072"
+      "#708090", "white", "#8DD3C7", "#FDB462", "#BEBADA", "#F0E442"
     )
   ) +
   ggplot2::scale_y_continuous(name = "AICc Weight") +
