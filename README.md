@@ -56,7 +56,7 @@ order to rerun the code.
 
 ### Warning
 
-This repository requires the DAISIE R package version 4.3.1. This package can be installed from a remote source (GitHub) but requires compilation of compiled code (fortran and C++). This may cause issues on certain operating system and require certain tool chains to be installed on a system. 
+This repository requires the DAISIE R package version 4.4.1. This package can be installed from a remote source (GitHub) but requires compilation of compiled code (fortran and C++). This may cause issues on certain operating system and require certain tool chains to be installed on a system. 
 
 
 
