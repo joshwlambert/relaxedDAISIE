@@ -1,26 +1,26 @@
-Submitted batch job 5754734
-Submitted batch job 5754744
-Submitted batch job 5754754
-Submitted batch job 5754764
-Submitted batch job 5754774
-Submitted batch job 5754784
-Submitted batch job 5754785
-Submitted batch job 5754786
-Submitted batch job 5754787
-Submitted batch job 5754788
-Submitted batch job 5754789
-Submitted batch job 5754790
-Submitted batch job 5754791
+Submitted batch job 5953612
+Submitted batch job 5953614
+Submitted batch job 5953616
+Submitted batch job 5953618
+Submitted batch job 5953620
+Submitted batch job 5953622
+Submitted batch job 5953624
+Submitted batch job 5953625
+Submitted batch job 5953626
+Submitted batch job 5953627
+Submitted batch job 5953628
+Submitted batch job 5953629
+Submitted batch job 5953630
 
 ###############################################################################
 Hábrók Cluster
-Job 5754733 for user p287218
-Finished at: Tue Oct 24 23:47:46 CEST 2023
+Job 5953611 for user p287218
+Finished at: Fri Nov  3 23:31:04 CET 2023
 
 Job details:
 ============
 
-Job ID              : 5754733
+Job ID              : 5953611
 Name                : Hawaii
 User                : p287218
 Partition           : gelifesmedium
@@ -29,19 +29,19 @@ Number of Nodes     : 1
 Cores               : 1
 Number of Tasks     : 1
 State               : COMPLETED
-Submit              : 2023-10-24T23:47:14
-Start               : 2023-10-24T23:47:14
-End                 : 2023-10-24T23:47:46
+Submit              : 2023-11-03T23:28:43
+Start               : 2023-11-03T23:30:36
+End                 : 2023-11-03T23:31:04
 Reserved walltime   : 3-00:00:00
-Used walltime       :   00:00:32
+Used walltime       :   00:00:28
 Used CPU time       : --
-% User (Computation): --
-% System (I/O)      : --
+% User (Computation):  0.00%
+% System (I/O)      : 39.47%
 Mem reserved        : 5G
-Max Mem (Node/step) : 76.00K (gelifes6, per node)
-Full Max Mem usage  : 76.00K
+Max Mem (Node/step) : 0.00  (Node unknown, N/A)
+Full Max Mem usage  : 0.00 
 Total Disk Read     : 2.28K
-Total Disk Write    : 1.00 
+Total Disk Write    : 2.00 
 
 Acknowledgements:
 =================
@@ -51,26 +51,26 @@ Please see this page for information about acknowledging Hábrók in your public
 https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
 
 ################################################################################
-Submitted batch job 5754764
-Submitted batch job 5754774
-Submitted batch job 5754784
-Submitted batch job 5754785
-Submitted batch job 5754786
-Submitted batch job 5754787
-Submitted batch job 5754788
-Submitted batch job 5754789
-Submitted batch job 5754790
-Submitted batch job 5754791
+Submitted batch job 5953618
+Submitted batch job 5953620
+Submitted batch job 5953622
+Submitted batch job 5953624
+Submitted batch job 5953625
+Submitted batch job 5953626
+Submitted batch job 5953627
+Submitted batch job 5953628
+Submitted batch job 5953629
+Submitted batch job 5953630
 
 ###############################################################################
 Hábrók Cluster
-Job 5754733 for user p287218
-Finished at: Tue Oct 24 23:47:46 CEST 2023
+Job 5953611 for user p287218
+Finished at: Fri Nov  3 23:31:04 CET 2023
 
 Job details:
 ============
 
-Job ID              : 5754733
+Job ID              : 5953611
 Name                : Hawaii
 User                : p287218
 Partition           : gelifesmedium
@@ -79,19 +79,19 @@ Number of Nodes     : 1
 Cores               : 1
 Number of Tasks     : 1
 State               : COMPLETED
-Submit              : 2023-10-24T23:47:14
-Start               : 2023-10-24T23:47:14
-End                 : 2023-10-24T23:47:46
+Submit              : 2023-11-03T23:28:43
+Start               : 2023-11-03T23:30:36
+End                 : 2023-11-03T23:31:04
 Reserved walltime   : 3-00:00:00
-Used walltime       :   00:00:32
+Used walltime       :   00:00:28
 Used CPU time       : --
-% User (Computation): --
-% System (I/O)      : --
+% User (Computation):  0.00%
+% System (I/O)      : 39.47%
 Mem reserved        : 5G
-Max Mem (Node/step) : 76.00K (gelifes6, per node)
-Full Max Mem usage  : 76.00K
+Max Mem (Node/step) : 0.00  (Node unknown, N/A)
+Full Max Mem usage  : 0.00 
 Total Disk Read     : 2.28K
-Total Disk Write    : 1.00 
+Total Disk Write    : 2.00 
 
 Acknowledgements:
 =================

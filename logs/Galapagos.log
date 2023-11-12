@@ -1,26 +1,26 @@
-Submitted batch job 5754603
-Submitted batch job 5754613
-Submitted batch job 5754623
-Submitted batch job 5754633
-Submitted batch job 5754643
-Submitted batch job 5754653
-Submitted batch job 5754663
-Submitted batch job 5754664
-Submitted batch job 5754665
-Submitted batch job 5754666
-Submitted batch job 5754667
-Submitted batch job 5754668
-Submitted batch job 5754669
+Submitted batch job 5953613
+Submitted batch job 5953615
+Submitted batch job 5953617
+Submitted batch job 5953619
+Submitted batch job 5953621
+Submitted batch job 5953623
+Submitted batch job 5953631
+Submitted batch job 5953632
+Submitted batch job 5953633
+Submitted batch job 5953634
+Submitted batch job 5953635
+Submitted batch job 5953636
+Submitted batch job 5953637
 
 ###############################################################################
 Hábrók Cluster
-Job 5754602 for user p287218
-Finished at: Tue Oct 24 23:45:55 CEST 2023
+Job 5953610 for user p287218
+Finished at: Fri Nov  3 23:31:09 CET 2023
 
 Job details:
 ============
 
-Job ID              : 5754602
+Job ID              : 5953610
 Name                : Galapagos
 User                : p287218
 Partition           : gelifesmedium
@@ -29,17 +29,17 @@ Number of Nodes     : 1
 Cores               : 1
 Number of Tasks     : 1
 State               : COMPLETED
-Submit              : 2023-10-24T23:45:22
-Start               : 2023-10-24T23:45:23
-End                 : 2023-10-24T23:45:55
+Submit              : 2023-11-03T23:19:46
+Start               : 2023-11-03T23:30:36
+End                 : 2023-11-03T23:31:09
 Reserved walltime   : 3-00:00:00
-Used walltime       :   00:00:32
+Used walltime       :   00:00:33
 Used CPU time       : --
 % User (Computation): --
 % System (I/O)      : --
 Mem reserved        : 5G
-Max Mem (Node/step) : 436.00K (gelifes6, per node)
-Full Max Mem usage  : 436.00K
+Max Mem (Node/step) : 432.00K (gelifes6, per node)
+Full Max Mem usage  : 432.00K
 Total Disk Read     : 257.32K
 Total Disk Write    : 1.86K
 
@@ -51,26 +51,26 @@ Please see this page for information about acknowledging Hábrók in your public
 https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
 
 ################################################################################
-Submitted batch job 5754633
-Submitted batch job 5754643
-Submitted batch job 5754653
-Submitted batch job 5754663
-Submitted batch job 5754664
-Submitted batch job 5754665
-Submitted batch job 5754666
-Submitted batch job 5754667
-Submitted batch job 5754668
-Submitted batch job 5754669
+Submitted batch job 5953619
+Submitted batch job 5953621
+Submitted batch job 5953623
+Submitted batch job 5953631
+Submitted batch job 5953632
+Submitted batch job 5953633
+Submitted batch job 5953634
+Submitted batch job 5953635
+Submitted batch job 5953636
+Submitted batch job 5953637
 
 ###############################################################################
 Hábrók Cluster
-Job 5754602 for user p287218
-Finished at: Tue Oct 24 23:45:55 CEST 2023
+Job 5953610 for user p287218
+Finished at: Fri Nov  3 23:31:09 CET 2023
 
 Job details:
 ============
 
-Job ID              : 5754602
+Job ID              : 5953610
 Name                : Galapagos
 User                : p287218
 Partition           : gelifesmedium
@@ -79,17 +79,17 @@ Number of Nodes     : 1
 Cores               : 1
 Number of Tasks     : 1
 State               : COMPLETED
-Submit              : 2023-10-24T23:45:22
-Start               : 2023-10-24T23:45:23
-End                 : 2023-10-24T23:45:55
+Submit              : 2023-11-03T23:19:46
+Start               : 2023-11-03T23:30:36
+End                 : 2023-11-03T23:31:09
 Reserved walltime   : 3-00:00:00
-Used walltime       :   00:00:32
+Used walltime       :   00:00:33
 Used CPU time       : --
 % User (Computation): --
 % System (I/O)      : --
 Mem reserved        : 5G
-Max Mem (Node/step) : 436.00K (gelifes6, per node)
-Full Max Mem usage  : 436.00K
+Max Mem (Node/step) : 432.00K (gelifes6, per node)
+Full Max Mem usage  : 432.00K
 Total Disk Read     : 257.32K
 Total Disk Write    : 1.86K
 
