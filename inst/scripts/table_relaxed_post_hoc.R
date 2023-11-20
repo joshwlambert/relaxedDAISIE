@@ -1,12 +1,8 @@
 # script to produce post hoc tables that can be copied and modified in latex
 
-data("Canaries")
-data("Comoros")
 data("Galapagos")
 data("Hawaii")
 data("Marquesas")
-data("New_Caledonia")
-data("SaoTome_Principe")
 
 tab_list <- list()
 models <- c("cr_dd", "rr_lac_dd", "rr_mu_dd", "rr_k", "rr_laa_dd")
@@ -136,20 +132,19 @@ for (i in seq_along(islands)) {
       caption = paste0(
         "Maximum likelihood results for the ",
         gsub(pattern = "_2type", replacement = "", x = islands[i]),
-        " archipelago for ",
-        "a selection of homogeneous-rate (HR), relaxed-rate (RR) ",
-        "and homogeneous-rate 2-type (HR 2T) models. In the 2-type models the ",
-        "parameter which has two regimes is specified after 2T, this can be a ",
-        "single parameter or multiple parameters. ",
-        "Parameters estimated are: cladogenesis ($\\lambda^c$), extinction ",
-        "($\\mu$), carrying capacity (\\textit{K}), colonisation ($\\gamma$), ",
-        "anagenesis ($\\lambda^a$), standard deviation of relaxed parameter ",
-        "($\\sigma$), as well as the models maximised log likelihood (loglik) ",
-        "and Bayesian Information Criterion (BIC). The 2-type parameters are: ",
-        "cladogenesis ($\\lambda^c_2$), extinction ($\\mu_2$), carrying ",
-        "capacity ($K'_2$). When parameters are not estimated (e.g. $\\mu_2$ ",
-        "in HR 2T $\\lambda^c$), they are fixed to be equal to the ",
-        "corresponding parameter, in this case $\\mu_2$ = $\\mu$."),
+        " archipelago homogeneous-rate (HR), relaxed-rate (RR) ",
+        "and homogeneous-rate 2-type (HR 2T) models. In the 2-type models, ",
+        "the parameter which has two regimes is specified after the letters 2T, ",
+        "this can be a single parameter or multiple parameters. Parameters ",
+        "estimated are: cladogenesis ($\\lambda^c$), extinction ($\\mu$), ",
+        "carrying capacity (\\textit{K}), colonisation ($\\gamma$), anagenesis ",
+        "($\\lambda^a$), standard deviation of relaxed parameter ($\\sigma$), ",
+        "as well as the models maximised log likelihood (loglik) and Bayesian ",
+        "Information Criterion (BIC). The 2-type parameters are: cladogenesis ",
+        "($\\lambda^c_2$), extinction ($\\mu_2$), carrying capacity ($K'_2$). ",
+        "When type-2 parameters are not estimated (e.g. $\\mu_2$ in HR 2T ",
+        "$\\lambda^c$), they are fixed to be equal to the corresponding main ",
+        "parameter, in this case $\\mu_2$ = $\\mu$."),
       label = paste0("tab:", islands[i], "_ml")
     ),
     size = "footnotesize",
