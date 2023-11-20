@@ -95,9 +95,10 @@ print(
     display = c("s", "s", "s", "s"),
     align = "cccc",
     caption = paste0(
-      "Success rate of optimisation of the models used in this study. Models ",
-      "failed most often because the numerical integration of the likelihood ",
-      "became unstable and crashed."
+      "Success rate of optimisation of the models for the 10 different ",
+      "starting conditions per model. Models failed most often because the ",
+      "numerical integration of the likelihood became unstable and the ",
+      "computer job crashed."
     ),
     label = "tab:success_rate"
   ),
