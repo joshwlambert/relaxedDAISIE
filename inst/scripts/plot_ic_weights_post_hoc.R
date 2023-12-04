@@ -487,3 +487,13 @@ ggplot2::ggsave(
   units = "mm",
   dpi = 300
 )
+
+ggplot2::ggsave(
+  plot = ic_plot,
+  filename = file.path("inst", "plots", "ic_weights_post_hoc.svg"),
+  device = "svg",
+  width = 350,
+  height = 150,
+  units = "mm",
+  dpi = 300
+)
